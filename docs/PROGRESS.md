@@ -51,3 +51,23 @@ Milestones M2–M6 are in progress; this file will record actual verification re
 - Completed RELEASE_REPORT and VIDEO_HANDOFF with real evidence, limitations, sources, safe reproduction commands and release authorization boundaries.
 - V1 local engineering acceptance passes. Live AI, physical devices, public GitHub/CI, production domain/TLS/Forge and scholarly critical-text certification remain unexecuted or pending review as explicitly documented.
 - Final teardown stops the owned dev/browser preview and removes only the isolated MysticAtlas QA service/network; Docker image is retained for reuse. Docker Desktop itself is not stopped, to avoid interfering with other local work.
+
+## 2026-11-15 — Owner-requested 推演预测 extension
+
+- Owner clarified “推演预测的能力加进去”. Implemented actual V1.1 functionality rather than only changing labels: shared deterministic scenario engine, 64 original bilingual profiles, primary/transformed/nuclear reading lenses, moving-line source prompts, three conditional scenarios and actions with observations/revision conditions.
+- Added validated `/api/forecast` without a theme field or AI dependency. Browser computes locally and sends no POST; theme meaning is not inferred in local mode. Optional AI now returns a strict, separate forecast and sees the rule report as context. Exact citations/IDs remain checked; invented percentages/dates and duplicate/missing scenario kinds are rejected.
+- First new unit run: one test incorrectly required short Chinese motif labels to exceed five characters. Corrected that assertion to distinguish a concise label from the longer body fields; data was not weakened or padded. Current typecheck, **61 unit/API tests**, build and secret scan pass.
+- Initial browser regression on the existing dev listener: **22/22 pass** (not production evidence). Confirmed the listener on 3000 lacks the production CSP, so leave it untouched and use an owned production listener on 3002 for final verification.
+- Found a companion startup issue: Express 5 passes listen errors to the callback; the previous callback printed success on occupied port. Fixed error handling, tested occupied port 3000: explicit failure and actual exit code 1. No existing service was stopped or proxy/network setting changed.
+- Final production browser/container checks, artifact inspection and documentation are underway; detailed results belong to FORECAST_RELEASE_REPORT.
+
+### Extension final acceptance
+
+- Production listener 3002 confirmed health 1.1.0, strict CSP and no Vite client. **22/22 production E2E pass**, 38.4 seconds locally; desktop and mobile plus English 320/390/768px overflow checks. Mock AI rendering/failure preservation and no-POST local generation pass.
+- Linux build runs all **61 tests** and bundles successfully. Isolated Compose project `mysticatlas-forecast-qa` on 3003 becomes healthy; actual forecast API, core APIs, expected AI-off 503 and 20 concurrent health checks pass (seven smoke checks total).
+- Inspected the actual forecast component capture. Corrected screenshot-only sticky navigation overlap by excluding unrelated navigation from the component crop; forecast contents unaltered. All assets remain genuine browser captures.
+- Completed FORECAST_RELEASE_REPORT and documentation. Final teardown removes only owned preview/QA processes and leaves the pre-existing development listener on 3000 alone. AI remains default-off; no live provider or public deployment is claimed.
+
+- Final quality review removed duplicate actions when nuclear/primary/transformed lenses coincide; exhaustive cases now also enforce three distinct suggestions. Refined the AI accuracy-claim guard so an honest “不提供准确率” is accepted, while unsupported numeric rates/guaranteed dates remain rejected. Added regression coverage: **62/62 unit/API tests now pass** (23 + 6 + 33), including the Linux rebuild. Final UI/container verification uses the rebuilt image on isolated port 3003.
+
+- Final rebuilt container browser regression: **22/22 PASS**, 38.2 seconds. Regenerated the component captures with navigation hidden via the native attribute (CSP-compatible), and reran the two affected capture tests: **2/2 PASS**. Full-suite output is retained even though the ignored HTML reporter now shows the last capture subset.

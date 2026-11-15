@@ -20,11 +20,15 @@ if (production) {
   app.use(vite.middlewares);
 }
 const port = Number(process.env.PORT || 3000);
-const server = app.listen(port, process.env.HOST || '127.0.0.1', () =>
+const server = app.listen(port, process.env.HOST || '127.0.0.1', (error?: Error) => {
+  if (error) {
+    console.error('MysticAtlas could not start: the configured address or port is unavailable.');
+    process.exit(1);
+  }
   console.log(
     `MysticAtlas ${production ? 'production' : 'development'} · http://localhost:${port}`,
-  ),
-);
+  );
+});
 server.requestTimeout = 30000;
 server.headersTimeout = 15000;
 for (const signal of ['SIGINT', 'SIGTERM'] as const)

@@ -1,0 +1,71 @@
+
+> mysticatlas@1.1.0 test:e2e
+> playwright test
+
+
+Running 22 tests using 1 worker
+
+(node:45484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\e2e\flows.spec.ts:20:1 › local forecasting gives source-based scenarios, actions and moving-line prompts without a POST (2.1s)
+  ok  2 [desktop] › tests\e2e\flows.spec.ts:53:1 › unchanged forecasting and English narrow layouts do not invent a turning point (1.6s)
+  ok  3 [desktop] › tests\e2e\flows.spec.ts:70:1 › MOCK AI forecast renders separately and AI failure preserves the local forecast (1.8s)
+  ok  4 [desktop] › tests\e2e\flows.spec.ts:140:1 › home and every core page render in both languages without overflow (826ms)
+  ok  5 [desktop] › tests\e2e\flows.spec.ts:175:1 › six incremental Web Crypto casts, animation skip, undo and restart (3.1s)
+  ok  6 [desktop] › tests\e2e\flows.spec.ts:196:1 › manual golden case 乾 → 姤, moving bottom line and nuclear 乾 (2.1s)
+  ok  7 [desktop] › tests\e2e\flows.spec.ts:221:1 › manual coin faces produce all old yin then transformed heaven (1.2s)
+  ok  8 [desktop] › tests\e2e\flows.spec.ts:236:1 › atlas search, upper/lower filters and full source detail (645ms)
+  ok  9 [desktop] › tests\e2e\flows.spec.ts:263:1 › history is opt-in, exportable, restorable and clearable; theme is omitted by default (2.0s)
+  ok 10 [desktop] › tests\e2e\flows.spec.ts:295:1 › reduced motion and keyboard controls complete an English reading (565ms)
+  ok 11 [desktop] › tests\e2e\flows.spec.ts:312:1 › corrupted local storage fails safely and saved HTML is rendered as text (355ms)
+(node:45136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 12 [mobile] › tests\e2e\flows.spec.ts:20:1 › local forecasting gives source-based scenarios, actions and moving-line prompts without a POST (2.4s)
+  ok 13 [mobile] › tests\e2e\flows.spec.ts:53:1 › unchanged forecasting and English narrow layouts do not invent a turning point (2.5s)
+  ok 14 [mobile] › tests\e2e\flows.spec.ts:70:1 › MOCK AI forecast renders separately and AI failure preserves the local forecast (2.4s)
+  ok 15 [mobile] › tests\e2e\flows.spec.ts:140:1 › home and every core page render in both languages without overflow (1.1s)
+  ok 16 [mobile] › tests\e2e\flows.spec.ts:175:1 › six incremental Web Crypto casts, animation skip, undo and restart (3.1s)
+  ok 17 [mobile] › tests\e2e\flows.spec.ts:196:1 › manual golden case 乾 → 姤, moving bottom line and nuclear 乾 (2.8s)
+  ok 18 [mobile] › tests\e2e\flows.spec.ts:221:1 › manual coin faces produce all old yin then transformed heaven (1.3s)
+  ok 19 [mobile] › tests\e2e\flows.spec.ts:236:1 › atlas search, upper/lower filters and full source detail (732ms)
+  ok 20 [mobile] › tests\e2e\flows.spec.ts:263:1 › history is opt-in, exportable, restorable and clearable; theme is omitted by default (2.7s)
+  ok 21 [mobile] › tests\e2e\flows.spec.ts:295:1 › reduced motion and keyboard controls complete an English reading (662ms)
+  ok 22 [mobile] › tests\e2e\flows.spec.ts:312:1 › corrupted local storage fails safely and saved HTML is rendered as text (399ms)
+
+  22 passed (38.4s)
+Final production container regression: http://127.0.0.1:3003
+
+> mysticatlas@1.1.0 test:e2e
+> playwright test
+
+
+Running 22 tests using 1 worker
+
+(node:46124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\e2e\flows.spec.ts:20:1 › local forecasting gives source-based scenarios, actions and moving-line prompts without a POST (1.9s)
+  ok  2 [desktop] › tests\e2e\flows.spec.ts:53:1 › unchanged forecasting and English narrow layouts do not invent a turning point (1.6s)
+  ok  3 [desktop] › tests\e2e\flows.spec.ts:70:1 › MOCK AI forecast renders separately and AI failure preserves the local forecast (1.7s)
+  ok  4 [desktop] › tests\e2e\flows.spec.ts:140:1 › home and every core page render in both languages without overflow (810ms)
+  ok  5 [desktop] › tests\e2e\flows.spec.ts:175:1 › six incremental Web Crypto casts, animation skip, undo and restart (3.1s)
+  ok  6 [desktop] › tests\e2e\flows.spec.ts:196:1 › manual golden case 乾 → 姤, moving bottom line and nuclear 乾 (2.0s)
+  ok  7 [desktop] › tests\e2e\flows.spec.ts:221:1 › manual coin faces produce all old yin then transformed heaven (1.2s)
+  ok  8 [desktop] › tests\e2e\flows.spec.ts:236:1 › atlas search, upper/lower filters and full source detail (628ms)
+  ok  9 [desktop] › tests\e2e\flows.spec.ts:263:1 › history is opt-in, exportable, restorable and clearable; theme is omitted by default (2.0s)
+  ok 10 [desktop] › tests\e2e\flows.spec.ts:295:1 › reduced motion and keyboard controls complete an English reading (563ms)
+  ok 11 [desktop] › tests\e2e\flows.spec.ts:312:1 › corrupted local storage fails safely and saved HTML is rendered as text (339ms)
+(node:25100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 12 [mobile] › tests\e2e\flows.spec.ts:20:1 › local forecasting gives source-based scenarios, actions and moving-line prompts without a POST (2.5s)
+  ok 13 [mobile] › tests\e2e\flows.spec.ts:53:1 › unchanged forecasting and English narrow layouts do not invent a turning point (2.5s)
+  ok 14 [mobile] › tests\e2e\flows.spec.ts:70:1 › MOCK AI forecast renders separately and AI failure preserves the local forecast (2.4s)
+  ok 15 [mobile] › tests\e2e\flows.spec.ts:140:1 › home and every core page render in both languages without overflow (1.1s)
+  ok 16 [mobile] › tests\e2e\flows.spec.ts:175:1 › six incremental Web Crypto casts, animation skip, undo and restart (3.1s)
+  ok 17 [mobile] › tests\e2e\flows.spec.ts:196:1 › manual golden case 乾 → 姤, moving bottom line and nuclear 乾 (2.9s)
+  ok 18 [mobile] › tests\e2e\flows.spec.ts:221:1 › manual coin faces produce all old yin then transformed heaven (1.3s)
+  ok 19 [mobile] › tests\e2e\flows.spec.ts:236:1 › atlas search, upper/lower filters and full source detail (720ms)
+  ok 20 [mobile] › tests\e2e\flows.spec.ts:263:1 › history is opt-in, exportable, restorable and clearable; theme is omitted by default (2.6s)
+  ok 21 [mobile] › tests\e2e\flows.spec.ts:295:1 › reduced motion and keyboard controls complete an English reading (680ms)
+  ok 22 [mobile] › tests\e2e\flows.spec.ts:312:1 › corrupted local storage fails safely and saved HTML is rendered as text (413ms)
+
+  22 passed (38.2s)

@@ -4,6 +4,7 @@ import { getHexagram, type CastResult } from '../engines/iching';
 import type { Interpretation } from '../server/ai';
 import { ClassicalText, DiagramCard } from './components';
 import { copy, type Lang } from './i18n';
+import { AIForecastReading, Forecast } from './Forecast';
 
 export function Result({
   result,
@@ -160,6 +161,7 @@ export function Result({
         </p>
         <p>{t.nuclearHelp}</p>
       </div>
+      <Forecast result={result} lang={lang} />
       <ClassicalText h={result.primary} lang={lang} moving={result.movingLines} />
       <section className="reading-note">
         <span className="eyebrow">{t.readingNote}</span>
@@ -217,6 +219,7 @@ export function Result({
             ))}
             <h3>{t.context}</h3>
             <p>{ai.context}</p>
+            <AIForecastReading forecast={ai.forecast} lang={lang} />
             <h3>{t.reflection}</h3>
             <ul>
               {ai.questions.map((q, i) => (

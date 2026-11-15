@@ -27,6 +27,10 @@ Differences include 即/既 (6.4), 啕/咷 (13.5, 56.6), 佑/祐 (14.6), 撝/捴
 
 Remaining scholarly work: compare disputed readings and all judgments against a licensed facsimile/critical edition before advertising a definitive text. This is not a blocker for an openly labeled cultural transcription, but it blocks claims of authoritative textual accuracy.
 
+## Original V1.1 forecast prompts
+
+`engines/forecast/profiles.ts` contains MysticAtlas-authored Chinese/English prompts for all 64 hexagrams. Motifs are symbolic reading lenses, not new classical quotations, licensed modern translations, traditional event-date rules or claims of empirical accuracy. Stage metaphors, scenarios and action suggestions are original MIT-licensed commentary. Source-linked judgments and moving-line quotations continue to use the pinned classical dataset and disclose pending variants. No new third-party source or predictive dataset was added for this extension.
+
 ## References inspected, not redistributed
 
 - [Unicode Yijing Hexagram Symbols](https://www.unicode.org/charts/PDF/U4DC0.pdf): symbol range U+4DC0–U+4DFF and King Wen labels inspected. No chart PDF or font copied into the product. Algorithm mapping is independently checked using explicit corpus trigram labels, not font appearance.

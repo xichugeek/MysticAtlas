@@ -26,3 +26,7 @@ Arrays are bottom-to-top. Coins are 2 or 3. Values 6/8 are yin; 7/9 yang; only 6
 ## Release boundaries
 
 Local commits are authorized by the task document. Public push, credentials, production deployment, DNS/TLS and Forge changes require separate authorization and actual environment inspection. Docker availability is a verification gate; a file review is not a container run. V2/V3 are roadmap labels only.
+
+## Requested extension — 推演预测 (2026-11-15)
+
+The owner explicitly requested predictive inference after V1 delivery. Add a visible result-page capability, not only different copy: a shared deterministic scenario engine with original bilingual symbolic profiles for all 64 hexagrams, present/transformed/inner readings, moving-line context, three conditional scenarios, observable signals and reversible action suggestions. Available offline without AI; no extra randomness, fabricated probabilities or dates. Add a validated `/api/forecast` contract and optional AI scenario expansion with matching chart IDs and verified citations. Update tests, source distinctions, product documentation and actual evidence. This changes the original cultural-reading-only feature scope but does not authorize public push, production changes or credential configuration. The product must honestly label symbolic inference and its uncertainty.

@@ -1,0 +1,2 @@
+MysticAtlas could not start: the configured address or port is unavailable.
+actual_exit=1

@@ -27,6 +27,18 @@ await check(
   (r) => r.status === 400,
 );
 await check(
+  'local conditional forecast',
+  '/api/forecast',
+  init([9, 7, 7, 7, 7, 7]),
+  (r, b) =>
+    r.ok &&
+    b.forecast.mode === 'local-rules' &&
+    b.forecast.chartIds.primaryId === 1 &&
+    b.forecast.chartIds.changedId === 44 &&
+    b.forecast.scenarios.length === 3 &&
+    b.forecast.recommendations.length === 3,
+);
+await check(
   'AI disabled fallback',
   '/api/interpret',
   init([7, 7, 7, 7, 7, 7]),

@@ -26,6 +26,7 @@ import { Library, HexagramDetail } from './Library';
 import { Result } from './Result';
 import { copy, type Lang } from './i18n';
 import { exportHistory, HISTORY_KEY, loadHistory, saveHistory, type HistoryEntry } from './history';
+import { FORECAST_VERSION } from '../engines/forecast';
 
 const repo = 'https://github.com/xichugeek/MysticAtlas';
 function initialLang(): Lang {
@@ -415,10 +416,30 @@ function Principles({ lang }: { lang: Lang }) {
           </section>
         ))}
       </div>
+      <section className="sources-panel" aria-labelledby="forecast-method-title">
+        <h2 id="forecast-method-title">
+          {lang === 'zh' ? '推演预测怎样形成？' : 'How are predictive scenarios formed?'}
+        </h2>
+        <p>
+          {lang === 'zh'
+            ? '本卦提供现状主线，变卦提供待验证的变化方向，互卦提供辅助视角；动爻位置用于自编的阶段提示。没有动爻时，明确按延续与微调观察。'
+            : 'The primary pattern supplies a present lens, the transformed pattern a direction to test, and the nuclear pattern a supporting lens. Moving positions use original stage prompts. With no moving lines, observe continuity and small adjustments.'}
+        </p>
+        <p>
+          {lang === 'zh'
+            ? '64 卦各有自编的中英文主题、阅读提示、行动与复核问题。规则组合为“条件改善、条件延续、出现阻力”三种情景，每种列出成立条件、观察信号与修正条件。这些是象征性推演，不是历史回测、概率模型或固定应期法。'
+            : 'Each of the 64 patterns has original bilingual themes, prompts, actions and review questions. Rules compose improving, continuing and friction scenarios with assumptions, observations and revision conditions. This is symbolic inference, not a backtested probability model or fixed event-date method.'}
+        </p>
+        <p>
+          {lang === 'zh'
+            ? '本地推演不分析或上传主题；主动请求 AI 后，可结合主题展开结构化情景。经典引用与自编提示分开标注，AI 异常不会影响本地推演。'
+            : 'Local scenarios do not analyze or upload your theme. An explicit AI request can develop the theme into structured scenarios. Classical quotations and original prompts remain distinct, and local scenarios survive AI failures.'}
+        </p>
+      </section>
       <section className="sources-panel">
         <h2>{t.versions}</h2>
         <code>
-          {ALGORITHM_VERSION} · {DATA_VERSION}
+          {ALGORITHM_VERSION} · {DATA_VERSION} · {FORECAST_VERSION}
         </code>
         <p>{t.sourcesText}</p>
         <a className="text-link" href="/api/hexagrams" target="_blank" rel="noreferrer">

@@ -1,5 +1,7 @@
 # MysticAtlas V1 video handoff
 
+Current application update: **1.1.0 — 推演预测**, requested by the owner after the baseline below. Complete a reading and show the new section between the three diagrams and classic text: present/direction/inner lenses, moving-line prompts, three conditional scenarios and reversible action suggestions with observations/revision conditions. In `[9,7,7,7,7,7]`, the direction theme is “新因素与边界 / An encounter” from 44 姤. Source engine: `engines/forecast/`; UI: `src/Forecast.tsx`. The 64 bilingual prompt profiles are original commentary, not classical quotes or an empirical predictor. Mode works locally without a key; theme-based AI forecasts remain opt-in and mocked in verification. Use the latest `docs/FORECAST_RELEASE_REPORT.md` and `forecast-*` evidence files for current counts/status; the V1 baseline below remains historical.
+
 ## Product and actual state
 
 - Name/version: MysticAtlas · 易境 / AI 国学图谱, 1.0.0, XichuGeek / 西楚极客.

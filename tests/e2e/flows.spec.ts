@@ -17,6 +17,133 @@ async function noOverflow(page: Page) {
   );
 }
 
+test('local forecasting gives source-based scenarios, actions and moving-line prompts without a POST', async ({
+  page,
+}, info) => {
+  const posts: string[] = [];
+  page.on('request', (r) => {
+    if (r.method() === 'POST') posts.push(r.url());
+  });
+  await page.goto('/#cast');
+  await page.getByLabel('想推演的主题').fill('PRIVATE_SCENARIO_THEME');
+  await manual(page);
+  const forecast = page.getByRole('region', { name: '推演预测', exact: true });
+  await expect(forecast).toBeVisible();
+  await expect(forecast.locator('.forecast-readings article')).toHaveCount(3);
+  await expect(forecast.locator('.forecast-readings article').nth(1)).toContainText('新因素与边界');
+  await expect(forecast.locator('[data-scenario]')).toHaveCount(3);
+  await expect(forecast.locator('.forecast-actions>li')).toHaveCount(3);
+  await expect(forecast).toContainText('核实一个新出现的因素，暂缓扩大承诺。');
+  await forecast.locator('.forecast-moving summary').click();
+  await expect(forecast.locator('.forecast-moving article')).toContainText('初爻 · 9');
+  await expect(forecast.locator('.forecast-moving blockquote')).toContainText('潜龙勿用');
+  expect(posts).toEqual([]);
+  expect(page.url()).not.toContain('PRIVATE');
+  await noOverflow(page);
+  await page.evaluate(() => {
+    (document.activeElement as HTMLElement)?.blur();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.querySelectorAll<HTMLElement>('.site-header,.skip-link').forEach((el) => {
+      el.hidden = true;
+    });
+  });
+  await forecast.screenshot({
+    path: `artifacts/video-evidence/forecast-zh-${info.project.name}.png`,
+  });
+  await page.evaluate(() =>
+    document.querySelectorAll<HTMLElement>('.site-header,.skip-link').forEach((el) => {
+      el.hidden = false;
+    }),
+  );
+});
+
+test('unchanged forecasting and English narrow layouts do not invent a turning point', async ({
+  page,
+}) => {
+  await manual(page, [7, 7, 7, 7, 7, 7]);
+  const zh = page.getByRole('region', { name: '推演预测', exact: true });
+  await expect(zh).toContainText('不额外假定一次转折');
+  await zh.locator('.forecast-moving summary').click();
+  await expect(zh.locator('.forecast-moving article')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  const en = page.getByRole('region', { name: 'Predictive scenarios', exact: true });
+  await expect(en).toContainText('no reversal is assumed');
+  for (const width of [320, 390, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await noOverflow(page);
+  }
+});
+
+test('MOCK AI forecast renders separately and AI failure preserves the local forecast', async ({
+  page,
+}) => {
+  await manual(page);
+  let requestBody: Record<string, unknown> | undefined;
+  await page.route('**/api/interpret', async (route) => {
+    requestBody = route.request().postDataJSON();
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        status: 'success',
+        interpretation: {
+          primaryId: 1,
+          changedId: 44,
+          nuclearId: 1,
+          summary: 'MOCK_PROVIDER_SUMMARY',
+          citations: [{ hexagramId: 1, kind: 'judgment', quote: '乾，元亨利贞。' }],
+          context: 'Mock cultural context.',
+          questions: ['What changed?', 'What can you check?'],
+          limitations: 'Mock only; not a real provider.',
+          forecast: {
+            trend: 'MOCK_THEME_TREND',
+            scenarios: ['opening', 'continuity', 'friction'].map((kind) => ({
+              kind,
+              condition: 'If the stated conditions hold.',
+              outlook: 'Consider a small trial.',
+              observe: 'Check an actual response.',
+              reviseIf: 'Revise when conditions differ.',
+            })),
+            recommendations: [
+              {
+                action: 'MOCK_SMALL_ACTION',
+                observe: 'Record actual feedback.',
+                reconsiderIf: 'Revise if it does not help.',
+              },
+              {
+                action: 'Ask a clarifying question.',
+                observe: 'Look for a clear response.',
+                reconsiderIf: 'Reconsider if the premise changes.',
+              },
+            ],
+          },
+        },
+      }),
+    });
+  });
+  await page.getByRole('button', { name: '请求 AI 推演预测', exact: true }).click();
+  await expect(page.getByRole('region', { name: '结合主题的 AI 推演', exact: true })).toContainText(
+    'MOCK_THEME_TREND',
+  );
+  await expect(page.getByRole('region', { name: '推演预测', exact: true })).toBeVisible();
+  expect(requestBody?.values).toEqual([9, 7, 7, 7, 7, 7]);
+  await noOverflow(page);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await page.unroute('**/api/interpret');
+  await page.route('**/api/interpret', (route) =>
+    route.fulfill({
+      status: 502,
+      contentType: 'application/json',
+      body: JSON.stringify({ code: 'INVALID_AI_FORECAST' }),
+    }),
+  );
+  await page.getByRole('button', { name: 'Request an AI forecast', exact: true }).click();
+  await expect(page.getByRole('status')).toContainText('Local scenarios remain available');
+  await expect(
+    page.getByRole('region', { name: 'Predictive scenarios', exact: true }),
+  ).toBeVisible();
+});
+
 test('home and every core page render in both languages without overflow', async ({
   page,
 }, info) => {
@@ -80,7 +207,7 @@ test('manual golden case 乾 → 姤, moving bottom line and nuclear 乾', async
   await expect(page.locator('.result-explainer')).toContainText('初爻');
   await expect(page.locator('.line-texts .highlight')).toContainText('潜龙勿用');
   await expect(page.getByText('AI · OFF', { exact: true })).toBeVisible();
-  await page.getByRole('button', { name: '请求 AI 文化解读', exact: true }).click();
+  await page.getByRole('button', { name: '请求 AI 推演预测', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('AI 尚未启用');
   await noOverflow(page);
   await page.evaluate(() => {
@@ -148,7 +275,7 @@ test('history is opt-in, exportable, restorable and clearable; theme is omitted 
     if (r.method() === 'POST') posts.push(r.url());
   });
   await page.goto('/#cast');
-  await page.getByLabel('想反思的主题').fill('PRIVATE_THEME_NEVER_UPLOAD');
+  await page.getByLabel('想推演的主题').fill('PRIVATE_THEME_NEVER_UPLOAD');
   await manual(page);
   expect(await page.evaluate(() => localStorage.getItem('mysticatlas.history.v1'))).toBeNull();
   await page.getByRole('button', { name: '保存到本机', exact: true }).click();
@@ -185,7 +312,7 @@ test('reduced motion and keyboard controls complete an English reading', async (
   await page.getByRole('link', { name: 'View reading', exact: true }).click();
   await expect(page.locator('.result-diagrams .diagram-card')).toHaveCount(3);
   await noOverflow(page);
-  await page.getByRole('button', { name: 'Request an AI cultural reading', exact: true }).click();
+  await page.getByRole('button', { name: 'Request an AI forecast', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('AI is not enabled');
 });
 

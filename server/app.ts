@@ -10,9 +10,11 @@ import {
   HEXAGRAMS,
 } from '../engines/iching';
 import { AIError, AIService, configFromEnv } from './ai';
+import { FORECAST_VERSION, generateForecast } from '../engines/forecast';
 
 const values = z.array(z.union([z.literal(6), z.literal(7), z.literal(8), z.literal(9)])).length(6);
 const castSchema = z.object({ values }).strict();
+const forecastSchema = z.object({ values, lang: z.enum(['zh', 'en']).default('zh') }).strict();
 const interpretSchema = z
   .object({
     values,
@@ -93,9 +95,10 @@ export function createApp(
   app.get('/api/health', (_req, res) =>
     res.json({
       status: 'ok',
-      version: '1.0.0',
+      version: '1.1.0',
       algorithmVersion: ALGORITHM_VERSION,
       dataVersion: DATA_VERSION,
+      forecastVersion: FORECAST_VERSION,
       ai: ai.available ? 'enabled' : 'disabled',
     }),
   );
@@ -116,6 +119,17 @@ export function createApp(
       return;
     }
     res.json(calculate(parsed.data.values));
+  });
+  app.post('/api/forecast', (req, res) => {
+    const parsed = forecastSchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ status: 'error', code: 'INVALID_FORECAST_INPUT' });
+      return;
+    }
+    res.json({
+      status: 'success',
+      forecast: generateForecast(parsed.data.values, parsed.data.lang),
+    });
   });
   app.post('/api/interpret', async (req, res) => {
     const parsed = interpretSchema.safeParse(req.body);

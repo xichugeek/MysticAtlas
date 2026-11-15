@@ -13,10 +13,19 @@ For cultural learning, entertainment and self-reflection. **No scientific predic
 - Three animated coins, six explicit incremental casts; skip animation, undo and restart. Browser Web Crypto supplies randomness.
 - Manual entry using line values (6/7/8/9) or individual coin faces (2/3).
 - Primary, transformed and nuclear hexagrams; moving line positions, trigrams, raw values and rule version.
+- **V1.1 predictive scenarios**: present/direction/inner readings, moving-line prompts, three conditional scenarios, observations, revision conditions and suggested actions. Generated locally without an AI key.
 - Search/filter all 64 hexagrams and 384 line statements, pinned source links and disclosed textual variants.
 - Chinese/English core UI, keyboard controls, reduced-motion preference and responsive layouts.
 - Explicit local journal save, optional local theme save, JSON export and clear. Theme-free clipboard sharing.
 - Optional server-only AI adapter; structured, source-checked output and graceful fallback. **AI is disabled by default.**
+
+## Using predictive scenarios
+
+Complete six casts or manual entry. The result page automatically shows **Predictive scenarios**: a present lens from the primary hexagram, a direction to test from the transformed pattern and a supporting nuclear lens. Moving-line details include positions, transitions and the actual classical passage. Improving, continuing and friction scenarios each state assumptions, observations and revision conditions. A chart with no moving lines explicitly uses continuity and small adjustments.
+
+Local mode follows chart rules and does not analyze or upload your theme. With a configured provider, **Request an AI forecast** can develop the theme into structured scenarios; local output remains available on failure. All 64 bilingual prompts and stage metaphors are original commentary, separate from source-linked quotations. This is conditional symbolic forecasting, not an empirically validated prediction model; it does not invent accuracy rates, event dates or guaranteed outcomes.
+
+New API: `POST /api/forecast` with `{ "values": [9,7,7,7,7,7], "lang": "en" }`. No AI needed; theme text is not accepted. See the [forecast release report](docs/FORECAST_RELEASE_REPORT.md).
 
 English navigation and explanations are provided. Classical texts remain in Chinese; short English labels are not a translation. Future Qimen and face-geometry modules are marked Planned and are not implemented.
 
