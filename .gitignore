@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+output/
+.playwright-cli/
+artifacts/video-evidence/*.webm
+artifacts/video-evidence/*.mp4
+artifacts/video-evidence/raw/
+.DS_Store
+Thumbs.db
