@@ -10,7 +10,7 @@ Current application update: **1.1.0 — 推演预测**, requested by the owner a
 - Relative root: repository root; actual path `D:\Project\Web\MysticAtlas`.
 - Start: `npm ci` then `npm run dev`; local URL `http://localhost:3000`. Production: `npm run build` then `npm start`. Container QA uses loopback `http://127.0.0.1:3001` during verification. A local service running during development is not an online deployment; final run status is in RELEASE_REPORT.
 - Real features: six incremental casts, manual values/coin faces, three diagrams, moving lines, 64 searchable source-linked records, Chinese/English core UI, local journal/export/clear, reduced motion and keyboard support, AI-off fallback plus mock-tested adapter.
-- Not completed: public push, live AI/provider verification, Forge integration, DNS/TLS/public demo, physical phone/Safari testing, authoritative critical text collation. Qimen and face modules are planned only.
+- Not completed: live AI/provider verification, Forge integration, DNS/TLS/public demo, physical phone/Safari testing, authoritative critical text collation. Qimen and face modules are planned only. Public source push was subsequently authorized and completed on 2026-11-15.
 
 ## Actual Codex development evidence
 
@@ -18,7 +18,7 @@ Current application update: **1.1.0 — 推演预测**, requested by the owner a
 - Representative actual request: “请读取本地文件…项目开发任务书.md 并执行开发工作…开发框架…不一定要跟文档框架一样。” Scope derives from the supplied task; do not invent additional prompts or video-agent conversations.
 - Key implementation: `engines/iching/index.ts`; `knowledge/hexagrams.json`; `src/Cast.tsx`, `src/Result.tsx`; `server/ai.ts`; `tests/engine.test.ts`, `tests/api.test.ts`, `tests/e2e/flows.spec.ts`.
 - Source proof: immutable upstream commits and hashes in `knowledge/sources/manifest.json`; actual text differences in `knowledge/collation.json`.
-- Git: initialized locally on branch `main`, first real commit `aeb649a` (`docs: establish V1 scope and local delivery plan`). Further real milestone hashes are listed in the final `artifacts/video-evidence/git-history.txt`; do not claim these commits were pushed.
+- Git: initialized locally on branch `main`, first real commit `aeb649a` (`docs: establish V1 scope and local delivery plan`). Milestone history is retained in the evidence index. The owner subsequently authorized publication: all source commits through `121320f` were actually pushed to `origin/main` on 2026-11-15 and verified against the remote SHA.
 
 ## Reproducible recording sequence
 
@@ -51,6 +51,6 @@ Default and recorded browser mode: **disabled**. API unit tests: **mock provider
 
 - Material directory: `artifacts/video-evidence/INDEX.md`, real desktop/mobile home and result screenshots plus final safe command output. Browser report and traces: `output/playwright/` (ignored). Large recordings must remain ignored.
 - README and local app: **已验收** in the stated local scope; 47 unit/API tests and 16 production-container browser tests pass. See RELEASE_REPORT and retained command output.
-- GitHub: remote target configured locally; public push **待审核 / not executed**.
+- GitHub: public source on `xichugeek/MysticAtlas`, branch `main`, **已推送 / published** after the owner's 2026-11-15 authorization. Workflow results are tracked on the repository Actions page; source publication is not a demo/Forge deployment.
 - Docker: real local build, health/smoke, restart recovery, resource confinement and production-browser regression **已验收**. QA containers are removed at handoff; image retained. Local timings are not production performance benchmarks.
 - Production demo/Forge/DNS/TLS: **未执行**. The proposed domain is not evidence of availability. No fabricated online address, performance benchmark, recording, commit or test result.

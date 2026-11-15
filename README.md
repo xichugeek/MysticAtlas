@@ -81,7 +81,7 @@ Original code and CSS/SVG: MIT. Public-domain Zhouyi core text is imported from 
 
 ## Repository and deployment status
 
-Target repository: [xichugeek/MysticAtlas](https://github.com/xichugeek/MysticAtlas). Local work only; no public push has been performed. Proposed demo `mysticatlas.demo.xichugeek.com` is **not deployed**. Forge, DNS/TLS, production routing and sleep/wake behavior remain unverified and require separately authorized environment inspection. GitHub Actions is supplied, but no remote workflow run is claimed.
+Source is published on [xichugeek/MysticAtlas](https://github.com/xichugeek/MysticAtlas), branch `main`, following the owner's authorization on 2026-11-15. GitHub Actions runs the supplied quality gates on pushes; see [Actions](https://github.com/xichugeek/MysticAtlas/actions) for actual run results. Proposed demo `mysticatlas.demo.xichugeek.com` is **not deployed**. Forge, DNS/TLS, production routing and sleep/wake behavior remain unverified and require separately authorized environment inspection.
 
 ## Contributing and roadmap
 

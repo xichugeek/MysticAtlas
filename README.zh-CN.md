@@ -85,6 +85,6 @@ npm run test:distribution
 
 ## 发布状态与贡献
 
-目标仓库：[xichugeek/MysticAtlas](https://github.com/xichugeek/MysticAtlas)。本轮仅做本地开发与提交，没有公开推送。拟定 Demo `mysticatlas.demo.xichugeek.com` **尚未上线**。Forge 接口、DNS/TLS、生产配置及休眠唤醒能力须另行授权并实测。提供了 GitHub Actions，但未宣称远程 CI 已运行。
+源代码已于 2026-11-15 经用户授权推送到 [xichugeek/MysticAtlas](https://github.com/xichugeek/MysticAtlas) 的 `main` 分支。每次推送会触发 GitHub Actions，实际结果见 [Actions 页面](https://github.com/xichugeek/MysticAtlas/actions)。拟定 Demo `mysticatlas.demo.xichugeek.com` **尚未上线**。Forge 接口、DNS/TLS、生产配置及休眠唤醒能力仍须另行授权并实测。
 
 贡献请见 [CONTRIBUTING](CONTRIBUTING.md)。V2 奇门另行核验历法与流派规则；V3 仅限文化和几何比例，不推断身份、性格、智力、健康、财富、婚姻或命运。

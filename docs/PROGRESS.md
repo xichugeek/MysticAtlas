@@ -1,5 +1,13 @@
 # Progress / development evidence
 
+## 2026-11-15 — Authorized GitHub publication
+
+- Owner explicitly requested “把代码更新到github上面去”. Working tree was clean on `main`; origin matched `https://github.com/xichugeek/MysticAtlas.git`; the remote advertised no branches/tags before the first push.
+- Pre-push secret-pattern scan: 91 text files, zero findings. No `.env`, private key or key file appeared in Git history; only `.env.example` is tracked.
+- Executed normal `git push -u origin main` without force. All source commits through `121320f89ba578623f379aeb3d8a3458fe3f2f41` were published. Remote `refs/heads/main` independently returned the same full SHA. Local branch now tracks `origin/main`.
+- GitHub API confirms public repository `xichugeek/MysticAtlas`, default branch `main`. Initial remote CI started as [V1 quality gates / 43725076438](https://github.com/xichugeek/MysticAtlas/actions/runs/43725076438). A running workflow is not reported as PASS.
+- Updated both READMEs and video handoff to reflect actual source publication. Historical V1/V1.1/V1.2 acceptance reports retain the status at their original delivery; this entry records the later authorization. No production/DNS/Forge/credential/proxy change was performed.
+
 ## V1.2 — Direct conclusion correction (2026-11-15)
 
 - Feedback screenshot showed all six values but the user was still behind the “查看卦象” gate. General scenarios also did not directly answer the question. Added automatic result navigation, a first-screen question-linked symbolic verdict and explicit original 64-disposition rules. Existing-question matching is limited and labeled; it does not verify real-world premises.
