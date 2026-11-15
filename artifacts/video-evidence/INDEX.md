@@ -2,6 +2,8 @@
 
 All assets are captured from the actual local application using synthetic inputs. No credentials, real personal themes, live provider output, stock development footage or invented terminal results.
 
+Text captures retain actual tool messages; line endings and trailing whitespace are normalized for version control. The source snapshots under `knowledge/sources/` remain byte-exact and hash-checked.
+
 - `home-zh-desktop.png`, `home-zh-mobile.png`: real browser screenshots; the mobile image is Chromium device emulation.
 - `casting-desktop.png`: actual local coin-casting screen, captured using the Playwright CLI.
 - `result-zh-desktop.png`, `result-zh-mobile.png`: manual `[9,7,7,7,7,7]`, primary 1 乾, transformed 44 姤, nuclear 1 乾, changing bottom line. AI explicitly disabled.

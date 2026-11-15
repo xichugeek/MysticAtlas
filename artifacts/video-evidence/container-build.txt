@@ -1,4 +1,4 @@
- Image mysticatlas:local Building 
+ Image mysticatlas:local Building
 #1 [internal] load local bake definitions
 #1 reading from stdin 509B 0.0s done
 #1 DONE 0.0s
@@ -29,7 +29,7 @@
 #8 DONE 0.1s
 
 #9 [runtime 4/5] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
-#9 8.657 
+#9 8.657
 #9 8.657 added 73 packages in 8s
 #9 8.658 npm notice
 #9 8.658 npm notice New major version of npm available! 10.9.9 -> 12.2.2
@@ -40,7 +40,7 @@
 #9 DONE 9.0s
 
 #10 [build 4/6] RUN npm ci --no-audit --no-fund
-#10 9.509 
+#10 9.509
 #10 9.509 added 131 packages in 9s
 #10 9.510 npm notice
 #10 9.510 npm notice New major version of npm available! 10.9.9 -> 12.2.2
@@ -53,29 +53,29 @@
 #11 DONE 0.1s
 
 #12 [build 6/6] RUN npm run typecheck && npm test && npm run build
-#12 0.299 
+#12 0.299
 #12 0.299 > mysticatlas@1.0.0 typecheck
 #12 0.299 > tsc --noEmit
-#12 0.299 
-#12 3.168 
+#12 0.299
+#12 3.168
 #12 3.168 > mysticatlas@1.0.0 test
 #12 3.168 > vitest run
-#12 3.168 
-#12 3.440 
+#12 3.168
+#12 3.440
 #12 3.440 [1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90m/app[39m
-#12 3.440 
+#12 3.440
 #12 3.909  [32m✓[39m tests/engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 231[2mms[22m[39m
 #12 3.988  [32m✓[39m tests/api.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 226[2mms[22m[39m
-#12 3.993 
+#12 3.993
 #12 3.994 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
 #12 3.994 [2m      Tests [22m [1m[32m47 passed[39m[22m[90m (47)[39m
 #12 3.994 [2m   Start at [22m 10:41:18
 #12 3.995 [2m   Duration [22m 548ms[2m (tests 57%, transform 23%, import 19%, worker 1%)[22m
-#12 3.996 
-#12 4.105 
+#12 3.996
+#12 4.105
 #12 4.105 > mysticatlas@1.0.0 build
 #12 4.105 > vite build && esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server/index.js
-#12 4.105 
+#12 4.105
 #12 4.311 vite v8.3.8 building client environment for production...
 #12 4.323 transforming...
 #12 4.428 ✓ 2095 modules transformed.
@@ -84,11 +84,11 @@
 #12 4.529 dist/client/index.html                   0.69 kB │ gzip:   0.46 kB
 #12 4.529 dist/client/assets/index-DFl1fmWq.css   44.41 kB │ gzip:   9.79 kB
 #12 4.529 dist/client/assets/index-DIk82vJV.js   338.51 kB │ gzip: 101.85 kB
-#12 4.529 
+#12 4.529
 #12 4.531 ✓ built in 217ms
-#12 4.555 
+#12 4.555
 #12 4.555   dist/server/index.js  102.0kb
-#12 4.555 
+#12 4.555
 #12 4.555 ⚡ Done in 5ms
 #12 DONE 4.6s
 
@@ -110,4 +110,4 @@
 
 #15 resolving provenance for metadata file
 #15 DONE 0.0s
- Image mysticatlas:local Built 
+ Image mysticatlas:local Built

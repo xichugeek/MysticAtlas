@@ -1,8 +1,8 @@
- Container mysticatlas-app-1 Restarting 
- Container mysticatlas-app-1 Started 
- Container mysticatlas-app-1 Running 
- Container mysticatlas-app-1 Waiting 
- Container mysticatlas-app-1 Healthy 
+ Container mysticatlas-app-1 Restarting
+ Container mysticatlas-app-1 Started
+ Container mysticatlas-app-1 Running
+ Container mysticatlas-app-1 Waiting
+ Container mysticatlas-app-1 Healthy
 {
   "base": "http://127.0.0.1:3001",
   "checks": [
