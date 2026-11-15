@@ -1,0 +1,536 @@
+.qimen-page {
+  padding-top: 55px;
+  padding-bottom: 80px;
+}
+.qimen-heading {
+  max-width: 880px;
+  margin-bottom: 32px;
+}
+.qimen-heading h1 {
+  margin: 14px 0;
+}
+.qimen-heading .qimen-lead {
+  font: 24px var(--serif);
+  color: var(--text);
+}
+.qimen-convention {
+  color: var(--gold);
+  font-size: 12px;
+}
+.qimen-form {
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.qimen-inputs {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+}
+.qimen-form label {
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  min-width: 0;
+}
+.qimen-form input,
+.qimen-form select,
+.qimen-form textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #3b4532;
+  color: var(--text);
+  background: var(--bg);
+  padding: 12px 14px;
+  border-radius: 3px;
+}
+.qimen-question {
+  margin: 24px 0;
+}
+.qimen-form textarea {
+  resize: vertical;
+}
+.qimen-inputs + p {
+  margin-top: 12px;
+}
+.qimen-form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.qimen-form-actions .text-link {
+  font-size: 13px;
+}
+.qimen-privacy {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.qimen-reading {
+  margin-top: 35px;
+  padding: 35px;
+  border: 1px solid #6d5a36;
+  background: linear-gradient(120deg, #25291c, var(--panel) 80%);
+  border-radius: 4px;
+  scroll-margin-top: 120px;
+}
+.qimen-reading:focus {
+  outline: none;
+}
+.qimen-reading-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.qimen-reading-top .mono {
+  color: var(--muted);
+  font-size: 11px;
+}
+.qimen-reading h2 {
+  font-size: 17px;
+  margin: 22px 0 10px;
+  color: var(--muted);
+}
+.qimen-result-question {
+  overflow-wrap: anywhere;
+  margin-bottom: 15px;
+}
+.qimen-reading .qimen-verdict {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 36px;
+  margin: 22px 0 12px;
+}
+.qimen-answer {
+  max-width: 900px;
+  font-size: 16px;
+}
+.qimen-next {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 18px;
+  border-block: 1px solid var(--border);
+  padding: 20px 0;
+  margin: 25px 0;
+}
+.qimen-next strong {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 500;
+}
+.qimen-next p {
+  margin: 0;
+  font-size: 14px;
+}
+.qimen-page summary {
+  color: var(--gold);
+  cursor: pointer;
+}
+.qimen-evidence {
+  font-size: 13px;
+}
+.qimen-evidence li {
+  margin-bottom: 9px;
+  color: #bec6b4;
+}
+.qimen-scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 30px 0;
+}
+.qimen-scenarios article {
+  border-top: 1px solid #6d5a36;
+  padding-top: 16px;
+}
+.qimen-scenarios .mono {
+  color: var(--gold);
+}
+.qimen-scenarios h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 12px 0;
+}
+.qimen-scenarios p,
+.qimen-scenarios small,
+.qimen-revision {
+  font-size: 13px;
+  color: var(--muted);
+}
+.qimen-method,
+.qimen-limitation {
+  font-size: 12px;
+  color: var(--muted);
+}
+.qimen-limitation {
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+  margin-bottom: 0;
+}
+.qimen-chart-section {
+  margin-top: 55px;
+}
+.qimen-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.qimen-section-title h2 {
+  font-size: 30px;
+  margin: 8px 0 25px;
+}
+.qimen-ju {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--gold);
+}
+.qimen-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+.qimen-pillars > div {
+  display: grid;
+  gap: 8px;
+  padding: 16px 20px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.qimen-pillars > div:last-child {
+  border-right: 0;
+}
+.qimen-pillars small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.qimen-pillars strong {
+  color: var(--gold);
+  font: 28px var(--serif);
+  letter-spacing: 5px;
+}
+.qimen-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin: 24px 0;
+}
+.qimen-metadata > div {
+  display: grid;
+  gap: 5px;
+}
+.qimen-metadata dt {
+  font-size: 11px;
+  color: var(--muted);
+}
+.qimen-metadata dd {
+  font-size: 14px;
+  margin: 0;
+}
+.qimen-orientation {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 24px 0 14px;
+}
+.qimen-board-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 25px;
+}
+.qimen-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--border);
+  gap: 1px;
+  border: 1px solid var(--border);
+}
+.qimen-palace {
+  min-width: 0;
+  min-height: 205px;
+  background: var(--panel);
+  text-align: left;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  position: relative;
+}
+.qimen-palace:hover {
+  background: #232b1e;
+}
+.qimen-palace.selected {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+  background: #272d1e;
+}
+.qimen-palace:focus-visible {
+  z-index: 1;
+}
+.qimen-palace-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 5px;
+}
+.qimen-palace-heading strong {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 13px;
+}
+.qimen-palace-heading b {
+  color: var(--gold);
+  font-family: var(--mono);
+  font-weight: 400;
+}
+.qimen-palace-heading small {
+  font-size: 10px;
+  color: var(--muted);
+}
+.qimen-deity {
+  font-size: 11px;
+  color: var(--muted);
+}
+.qimen-star {
+  color: #d7ddc9;
+  font-size: 13px;
+}
+.qimen-door {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 21px;
+}
+.qimen-stems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 12px;
+}
+.qimen-palace-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+}
+.qimen-palace-tags i {
+  font-style: normal;
+  font-size: 9px;
+  color: #d8bc85;
+  border: 1px solid #51462d;
+  padding: 0 4px;
+}
+.qimen-center {
+  background: #131a12;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: var(--gold);
+}
+.qimen-center .qimen-palace-heading {
+  width: 100%;
+}
+.qimen-center-note {
+  color: var(--muted);
+  font-size: 11px;
+}
+.qimen-palace-detail {
+  padding: 25px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  min-width: 0;
+}
+.qimen-palace-detail h3 {
+  font: 27px var(--serif);
+  margin: 14px 0;
+}
+.qimen-palace-detail > .mono {
+  color: var(--muted);
+}
+.qimen-palace-detail dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+.qimen-palace-detail dt {
+  color: var(--muted);
+}
+.qimen-palace-detail dd {
+  margin: 0;
+  text-align: right;
+}
+.qimen-detail-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.qimen-export {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 25px 0;
+}
+.qimen-export > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.qimen-export label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+.qimen-export input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--gold);
+}
+.qimen-rules,
+.qimen-sources {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.qimen-rules li {
+  margin: 18px 0;
+}
+.qimen-rules p {
+  margin: 8px 0;
+}
+.qimen-sources p {
+  margin-top: 18px;
+}
+.qimen-sources a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.qimen-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 80px 20px;
+}
+.qimen-empty svg {
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+.qimen-empty h2 {
+  font-size: 23px;
+}
+.qimen-empty p {
+  font-size: 13px;
+}
+@media (max-width: 800px) {
+  .qimen-board-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .qimen-reading {
+    scroll-margin-top: 140px;
+  }
+}
+@media (max-width: 600px) {
+  .qimen-page {
+    padding-top: 30px;
+  }
+  .qimen-heading h1 {
+    font-size: 30px;
+  }
+  .qimen-heading .qimen-lead {
+    font-size: 20px;
+  }
+  .qimen-form,
+  .qimen-reading {
+    padding: 20px;
+  }
+  .qimen-inputs {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .qimen-form-actions .primary {
+    width: 100%;
+  }
+  .qimen-reading .qimen-verdict {
+    font-size: 28px;
+  }
+  .qimen-reading-top .mono {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+  .qimen-next {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .qimen-scenarios {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .qimen-ju {
+    font-size: 20px;
+  }
+  .qimen-palace {
+    padding: 10px 7px;
+    min-height: 195px;
+  }
+  .qimen-palace-heading strong {
+    font-size: 12px;
+  }
+  .qimen-palace-heading small {
+    font-size: 9px;
+  }
+  .qimen-star {
+    font-size: 11px;
+  }
+  .qimen-door {
+    font-size: 18px;
+  }
+  .qimen-stems {
+    font-size: 10px;
+    gap: 3px 6px;
+  }
+  .qimen-palace-tags {
+    gap: 3px;
+  }
+  .qimen-palace-tags i {
+    font-size: 8px;
+    padding: 0 2px;
+  }
+  .qimen-palace-detail {
+    padding: 20px;
+  }
+  .qimen-pillars > div {
+    padding: 14px 8px;
+  }
+  .qimen-pillars strong {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+  .qimen-reading .qimen-evidence ul {
+    padding-left: 18px;
+  }
+  .qimen-metadata {
+    gap: 14px 20px;
+  }
+  .qimen-export > div,
+  .qimen-export .button {
+    width: 100%;
+  }
+}

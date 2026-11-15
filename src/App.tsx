@@ -30,6 +30,7 @@ import { FORECAST_VERSION } from '../engines/forecast';
 
 const repo = 'https://github.com/xichugeek/MysticAtlas';
 const Face = lazy(() => import('./Face'));
+const Qimen = lazy(() => import('./Qimen'));
 function initialLang(): Lang {
   try {
     return localStorage.getItem('mysticatlas.lang') === 'en' ? 'en' : 'zh';
@@ -101,6 +102,15 @@ export function App() {
   }
   const active = route.startsWith('hexagram') ? 'library' : route === 'result' ? 'cast' : route;
   const detailId = route.startsWith('hexagram/') ? Number(route.split('/')[1]) : 0;
+  const navPages = [
+    ['home', t.home],
+    ['cast', t.cast],
+    ['qimen', t.qimenNav],
+    ['face', t.faceNav],
+    ['library', t.library],
+    ['principles', t.principles],
+    ['about', t.about],
+  ] as const;
   return (
     <>
       <a
@@ -125,20 +135,16 @@ export function App() {
             </span>
           </a>
           <nav aria-label={lang === 'zh' ? '主导航' : 'Main navigation'}>
-            {(['home', 'cast', 'faceNav', 'library', 'principles', 'about'] as const).map(
-              (page) => (
-                <a
-                  href={`#${page === 'faceNav' ? 'face' : page}`}
-                  key={page}
-                  className={active === (page === 'faceNav' ? 'face' : page) ? 'active' : ''}
-                  aria-current={
-                    active === (page === 'faceNav' ? 'face' : page) ? 'page' : undefined
-                  }
-                >
-                  {t[page]}
-                </a>
-              ),
-            )}
+            {navPages.map(([page, label]) => (
+              <a
+                href={`#${page}`}
+                key={page}
+                className={active === page ? 'active' : ''}
+                aria-current={active === page ? 'page' : undefined}
+              >
+                {label}
+              </a>
+            ))}
           </nav>
           <div className="header-actions">
             <a
@@ -287,6 +293,16 @@ export function App() {
               location.hash = 'cast';
             }}
           />
+        ) : route === 'qimen' ? (
+          <Suspense
+            fallback={
+              <div className="page empty-state" role="status">
+                {lang === 'zh' ? '正在打开奇门遁甲…' : 'Opening Qimen Dunjia…'}
+              </div>
+            }
+          >
+            <Qimen lang={lang} />
+          </Suspense>
         ) : route === 'face' ? (
           <Suspense
             fallback={
@@ -381,18 +397,14 @@ function Roadmap({ lang }: { lang: Lang }) {
             <article key={name}>
               <div>
                 <span className="mono">0{i + 1}</span>
-                <span className={`pill ${i === 1 ? '' : 'available'}`}>
-                  {i === 1 ? t.planned : t.current}
-                </span>
+                <span className="pill available">{t.current}</span>
               </div>
               <h3>{name}</h3>
               <p>{i === 0 ? t.ritualSub : i === 1 ? t.qimenNote : t.faceNote}</p>
-              {i !== 1 && (
-                <a className="text-link" href={i === 0 ? '#cast' : '#face'}>
-                  {i === 0 ? t.start : t.faceNav}
-                  <ArrowRight size={15} />
-                </a>
-              )}
+              <a className="text-link" href={i === 0 ? '#cast' : i === 1 ? '#qimen' : '#face'}>
+                {i === 0 ? t.start : i === 1 ? t.qimenNav : t.faceNav}
+                <ArrowRight size={15} />
+              </a>
             </article>
           ))}
         </div>

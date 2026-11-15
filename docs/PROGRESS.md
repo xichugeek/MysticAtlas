@@ -1,5 +1,13 @@
 # Progress / development evidence
 
+## 2026-11-15 — Owner-requested Qimen charts and readings (1.4.0)
+
+- Owner explicitly requested actual Qimen chart calculation, inference and GitHub update. Implemented hourly rotating-plate Chaibu with fixed UTC+8, 23:00 day rollover, term instant boundaries, preserved original/effective center origins and Tianqin/Tianrui lodging. Locked MIT `lunar-typescript@1.8.7`; full notices ship in browser assets.
+- Added active main-nav/home entries, time/topic/question form, immediate direct symbolic result, complete nine-palace layers, clickable details, trace, conditional scenarios/actions/revision, English/Chinese, private JSON export and clear. Question prose remains local and is not semantically analyzed; selected topic and explicit palace rules determine the result. Added a strictly validated shared-engine `/api/qimen` endpoint without question/provider input.
+- Independently matched published Q1 2026-03-18 15:20 palace facts (Yang 4, Tianzhu 2, Alarm 9). Tested hand-derived Yin 9 and center-origin cases, all 18×60 plate invariants, 12 HKO 2026 minute-level solar terms and date/hour/term/range boundaries. Scope and source-method differences are disclosed in QIMEN_RULES.
+- Typecheck, **99/99 unit/API tests**, production build and secret scan pass; dependency audit has **0 vulnerabilities**. Initial new browser tests found ambiguous implicit select labeling; explicit accessible labels fixed the issue. Final single production-container suite: **38/38 PASS**, with no retries; eight actual HTTP/concurrency smoke checks pass. Linux build also runs all 99 tests. Genuine bilingual desktop/mobile screenshots are `qimen-*`.
+- Added QIMEN_RULES and QIMEN_RELEASE_REPORT, refreshed READMEs/architecture/source/video records and extended CI container smoke to exercise Qimen. Reviewed actual production screenshots. Existing preview is 1.4.0 on port 3000; temporary QA 3002/3003 is cleaned without stopping that listener. Source update uses authorized GitHub main; no production/DNS/Forge or proxy changes.
+
 ## 2026-11-15 — Owner-requested face atlas (1.3.0)
 
 - Owner corrected the planned-only face module. Added an active main-navigation/home entry and real local MediaPipe detection: 478 landmarks, six measured values, overlay controls, vertical segments, manually entered reference lines, geometry export and clear; Chinese/English and mobile layout are implemented. Culture/drawing notes are sourced separately and do not become personal-trait or fate predictions.

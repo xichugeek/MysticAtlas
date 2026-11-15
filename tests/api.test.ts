@@ -49,6 +49,56 @@ async function start(ai?: AIService, production = true) {
   };
 }
 const values = [9, 7, 7, 7, 7, 7];
+
+describe('Qimen API', () => {
+  it('calculates the published chart and direct topic reading without AI', async () => {
+    const s = await start();
+    const r = await s.post('/api/qimen', {
+      dateTime: '2026-03-18T15:20:00',
+      topic: 'career',
+      lang: 'en',
+    });
+    expect(r.status).toBe(200);
+    expect(r.headers.get('cache-control')).toBe('no-store');
+    const b = await r.json();
+    expect(b.status).toBe('success');
+    expect(b.chart).toMatchObject({
+      ju: 4,
+      dun: 'yang',
+      chiefStar: '天柱',
+      chiefPalace: 2,
+      chiefDoor: '惊门',
+      doorPalace: 9,
+    });
+    expect(b.chart.palaces).toHaveLength(9);
+    expect(b.reading).toMatchObject({ topic: 'career', kind: 'opening', targetPalace: 2 });
+    expect(b.reading.verdict).toBe('An opening, with conditions');
+    expect(b).not.toHaveProperty('question');
+  });
+  it('validates calendar dates and rejects private questions or unsupported options', async () => {
+    const s = await start();
+    for (const body of [
+      { dateTime: '2026-02-29T12:00' },
+      { dateTime: '2100-01-01T00:00' },
+      { dateTime: '2026-03-18T15:20', question: 'PRIVATE' },
+      { dateTime: '2026-03-18T15:20', timeZone: 'UTC' },
+      { dateTime: '2026-03-18T15:20', topic: 'health' },
+      { dateTime: '2026-03-18T15:20', lang: 'xx' },
+      { dateTime: 7 },
+      {},
+    ]) {
+      const r = await s.post('/api/qimen', body);
+      expect(r.status).toBe(400);
+      expect((await r.json()).code).toBe('INVALID_QIMEN_INPUT');
+    }
+    const r = await s.post(
+      '/api/qimen',
+      { dateTime: '2026-03-18T15:20' },
+      { origin: 'https://other.test' },
+    );
+    expect(r.status).toBe(403);
+  });
+});
 const chart = calculate(values);
 const config: AIConfig = {
   enabled: true,

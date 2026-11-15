@@ -1,6 +1,7 @@
 export type Lang = 'zh' | 'en';
 export const copy = {
   zh: {
+    qimenNav: '奇门遁甲',
     faceNav: '面相图谱',
     home: '首页',
     cast: '铜钱起卦',
@@ -155,7 +156,7 @@ export const copy = {
     iching: '周易 · 六十四卦',
     qimen: '奇门 · 九宫图景',
     face: '面相 · 文化与几何',
-    qimenNote: '历法与盘面规则，留待独立版本核验。',
+    qimenNote: '时家转盘拆补法：实际九宫排盘、盘面推演、过程核对与报告导出。',
     faceNote: '仅研究文化资料与几何比例，不推断性格、健康或命运。',
     repo: '源代码',
     privacyTitle: '你的问题，属于你',
@@ -169,6 +170,7 @@ export const copy = {
     privacy: '隐私与边界',
   },
   en: {
+    qimenNav: 'Qimen',
     faceNav: 'Face atlas',
     home: 'Home',
     cast: 'Cast coins',
@@ -336,7 +338,8 @@ export const copy = {
     iching: 'I Ching · 64 hexagrams',
     qimen: 'Qimen · Nine palaces',
     face: 'Face · Culture & geometry',
-    qimenNote: 'Calendar and chart rules require verification in a separate release.',
+    qimenNote:
+      'Hourly rotating-plate charts, symbolic readings, a calculation trace and report export.',
     faceNote: 'Cultural sources and geometry only. No claims about personality, health or fate.',
     repo: 'Source code',
     privacyTitle: 'Your question belongs to you.',

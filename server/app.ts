@@ -11,9 +11,18 @@ import {
 } from '../engines/iching';
 import { AIError, AIService, configFromEnv } from './ai';
 import { FORECAST_VERSION, generateForecast } from '../engines/forecast';
+import { QIMEN_VERSION, calculateQimen } from '../engines/qimen';
+import { TOPICS, qimenReading } from '../engines/qimen/reading';
 
 const values = z.array(z.union([z.literal(6), z.literal(7), z.literal(8), z.literal(9)])).length(6);
 const castSchema = z.object({ values }).strict();
+const qimenSchema = z
+  .object({
+    dateTime: z.string().min(16).max(19),
+    topic: z.enum(TOPICS).default('general'),
+    lang: z.enum(['zh', 'en']).default('zh'),
+  })
+  .strict();
 const forecastSchema = z.object({ values, lang: z.enum(['zh', 'en']).default('zh') }).strict();
 const interpretSchema = z
   .object({
@@ -96,10 +105,11 @@ export function createApp(
   app.get('/api/health', (_req, res) =>
     res.json({
       status: 'ok',
-      version: '1.3.0',
+      version: '1.4.0',
       algorithmVersion: ALGORITHM_VERSION,
       dataVersion: DATA_VERSION,
       forecastVersion: FORECAST_VERSION,
+      qimenVersion: QIMEN_VERSION,
       ai: ai.available ? 'enabled' : 'disabled',
     }),
   );
@@ -131,6 +141,23 @@ export function createApp(
       status: 'success',
       forecast: generateForecast(parsed.data.values, parsed.data.lang),
     });
+  });
+  app.post('/api/qimen', (req, res) => {
+    const parsed = qimenSchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ status: 'error', code: 'INVALID_QIMEN_INPUT' });
+      return;
+    }
+    try {
+      const chart = calculateQimen({ dateTime: parsed.data.dateTime });
+      res.json({
+        status: 'success',
+        chart,
+        reading: qimenReading(chart, parsed.data.topic, parsed.data.lang),
+      });
+    } catch {
+      res.status(400).json({ status: 'error', code: 'INVALID_QIMEN_INPUT' });
+    }
   });
   app.post('/api/interpret', async (req, res) => {
     const parsed = interpretSchema.safeParse(req.body);

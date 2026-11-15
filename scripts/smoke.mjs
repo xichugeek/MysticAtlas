@@ -45,6 +45,21 @@ await check(
   (r, b) =>
     r.status === 503 && b.code === 'AI_DISABLED' && b.chart.primary.id === 1 && !b.interpretation,
 );
+await check(
+  'Qimen chart and topic reading',
+  '/api/qimen',
+  {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ dateTime: '2026-03-18T15:20:00', topic: 'career', lang: 'en' }),
+  },
+  (r, b) =>
+    r.ok &&
+    b.chart.ju === 4 &&
+    b.chart.chiefPalace === 2 &&
+    b.chart.doorPalace === 9 &&
+    b.reading.kind === 'opening',
+);
 const started = performance.now();
 const results = await Promise.all(
   Array.from({ length: 20 }, () => fetch(base + '/api/health').then((r) => r.ok)),

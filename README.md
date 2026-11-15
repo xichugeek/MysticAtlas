@@ -29,7 +29,17 @@ Local mode matches simple question forms (yes/no, timing, choice or method) with
 
 New API: `POST /api/forecast` with `{ "values": [9,7,7,7,7,7], "lang": "en" }`. No AI needed; theme text is not accepted. See the [forecast release report](docs/FORECAST_RELEASE_REPORT.md).
 
-English navigation and explanations are provided. Classical texts remain in Chinese; short English labels are not a translation. Qimen remains planned.
+English navigation and explanations are provided. Classical texts remain in Chinese; short English labels are not a translation.
+
+## Qimen Dunjia (1.4.0)
+
+Open **Qimen** / `/#qimen`, enter China civil time, select a topic and calculate. A direct symbolic conclusion appears immediately, with actual chart evidence, three conditional scenarios, a next step and revision conditions. No AI key is required. The selected topic determines the reading convention; question prose is not semantically analyzed or fact-checked.
+
+The real engine implements **hourly rotating-plate Qimen, Chaibu**, fixed UTC+8 civil time, 23:00 day rollover, solar-term instant boundaries, center 5 lodging in Kun 2 and Tianqin travelling with Tianrui. Supported input years: 1901–2099. View four pillars, yuan/Ju, Xun leader, chief star/door, earth/heaven stems, stars, doors, deities, hourly voids, hour-branch horse, door pressure and a calculation trace. Select a palace for details; export a JSON report or clear. Question text stays in memory and is excluded from export by default.
+
+Other configuration, day-rollover, center-lodging or apparent-solar-time conventions can produce different charts. Calendar seconds are calculated approximations; check almanac/version near term boundaries. Commentary is original symbolic inference, not empirical forecasting, an ancient quotation or factual research. See [verified results](docs/QIMEN_RELEASE_REPORT.md) and [exact conventions](docs/QIMEN_RULES.md).
+
+Shared-engine API: `POST /api/qimen` with `{ "dateTime": "2026-03-18T15:20:00", "topic": "career", "lang": "en" }`. It accepts no question text or client-supplied chart.
 
 ## Face atlas (1.3.0)
 

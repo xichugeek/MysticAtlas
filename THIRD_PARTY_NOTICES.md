@@ -18,6 +18,14 @@ Runtime dependencies: React / React DOM (MIT), Express (MIT), Zod (MIT), Helmet 
 
 UI illustration, coin rendering and logo mark are original CSS/SVG. Fonts use operating-system fallbacks; no font files, stock videos, trackers or analytics are distributed.
 
+## Qimen calendar (1.4.0)
+
+The installed npm artifact is pinned by lockfile integrity; npm's gitHead metadata refers to a commit whose package.json still says 1.8.6. See SOURCES for this provenance detail; no exact source-to-artifact reproducibility claim is made.
+
+`lunar-typescript` **1.8.7**, Copyright (c) 2020 6tail, MIT. Locked npm integrity is in `package-lock.json`. The complete upstream notice is preserved verbatim in `knowledge/sources/lunar-typescript-LICENSE.txt` and `public/licenses/lunar-typescript-LICENSE.txt`, the latter included in production browser assets. Source: [6tail/lunar-typescript](https://github.com/6tail/lunar-typescript), inspected commit `293f91ece5e5f437f1b86ded179f45eedaf7920f`. Only calendar fields are used; library divination/almanac recommendations are not presented as application forecasts.
+
+Qimen arrangement code, UI and reading text are original MysticAtlas code/commentary. Public-domain classical rule terminology and factual palace tables are not modern translations. Contemporary tutorials and Hong Kong Observatory tables are linked for rule/sample verification; no article bodies, textbook images or almanac PDFs are redistributed. The worked Q1 fixture records factual symbol placements, not the tutorial's authored explanatory prose. See QIMEN_RULES and SOURCES for the distinction between school conventions, independent samples and original interpretation.
+
 ## Face detector and example (1.3.0)
 
 MediaPipe Tasks Vision **0.10.21** (Google / MediaPipe authors) is Apache-2.0. The browser worker bundles its JavaScript and serves its unmodified WASM locally. The full upstream license, including its additional notices, is retained at `public/face/APACHE-2.0.txt` and copied beside generated runtime assets. Original bundle legal comments are preserved by esbuild. Package integrity is pinned in `package-lock.json`.

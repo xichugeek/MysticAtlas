@@ -1,6 +1,6 @@
 # MysticAtlas 1.0.0 release report
 
-Historical V1 baseline. The current application is **1.3.0**, with the local face atlas and earlier direct question-linked results. Use [FACE_RELEASE_REPORT](FACE_RELEASE_REPORT.md) for current verification and [DIRECT_ANSWER_RELEASE_REPORT](DIRECT_ANSWER_RELEASE_REPORT.md) for the earlier result correction. The original evidence below is retained as executed.
+Historical V1 baseline. The current application is **1.4.0**, with real Qimen charts/readings, the local face atlas and earlier direct I Ching results. Use [QIMEN_RELEASE_REPORT](QIMEN_RELEASE_REPORT.md) for current verification; earlier evidence is retained in [FACE_RELEASE_REPORT](FACE_RELEASE_REPORT.md) and [DIRECT_ANSWER_RELEASE_REPORT](DIRECT_ANSWER_RELEASE_REPORT.md). The original evidence below is retained as executed.
 
 Date: **2026-11-15 (Asia/Shanghai)**. Workspace: `D:\Project\Web\MysticAtlas`. Branch: `main`. Tested application milestone: **`9652137`**; final evidence/documentation is committed afterward. Exact history is in `artifacts/video-evidence/git-history.txt` and `git log --oneline`.
 

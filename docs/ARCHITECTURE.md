@@ -34,6 +34,14 @@ At six values, the app automatically opens results, including a completed cast r
 
 ## HTTP contracts
 
+### Qimen (1.4.0)
+
+`engines/qimen/index.ts` imports locked `lunar-typescript@1.8.7` for calendar calculations. It validates a fixed UTC+8 civil datetime, uses the 23:00 day pillar paired with the hour pillar, and deterministically implements the declared rotating-plate Chaibu method. The earth numerical order, eight-palace ring, original center origin and effective lodged origin are separate fields. Tianqin and its center stem move with Tianrui; center has no duplicate heaven stem, door or deity. Independent Q1 and hand-derived Yin/center vectors accompany exhaustive 18×60 structural checks. See QIMEN_RULES for all conventions and limits.
+
+`reading.ts` chooses day-stem and topic references, compares palace elements, and applies explicit priority rules for a direct symbolic verdict. It supplies traceable evidence, three scenarios, actions and revision conditions without AI. It does not parse question semantics or verify facts. `src/Qimen.tsx` is a lazy route, so the calendar bundle loads only when opening Qimen. Changed inputs remove old results; calculation focuses and scrolls to the verdict. Palace details, trace, bilingual layout, clear and JSON export are local. Question text stays in memory and is excluded from export unless separately opted in.
+
+`POST /api/qimen`: strict `{dateTime, topic?, lang?}`; recomputes with the same engine and returns `{status, chart, reading}`. Unsupported dates/options/topics/languages and question/chart payloads return 400 `INVALID_QIMEN_INPUT`. It inherits same-origin policy, JSON cap, generic API rate limit and no-store. No Qimen AI endpoint or provider input exists. Health now includes `qimenVersion` and app version 1.4.0. Browser runtime has no external calendar request. The MIT notice is preserved in the repository and `public/licenses/` for the browser distribution.
+
 All API responses use `Cache-Control: no-store`. No CORS allow header. Cross-origin browser POSTs are rejected. Upstream identity is never accepted from `X-Forwarded-For` unless the operator explicitly enables the documented single-proxy topology.
 
 | Endpoint               | Contract                                                                                                                                                                                                                                               |

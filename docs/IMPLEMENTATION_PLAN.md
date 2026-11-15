@@ -1,8 +1,12 @@
 # MysticAtlas V1 implementation plan
 
+## Owner-requested Qimen extension (1.4.0)
+
+The owner now explicitly requests real Qimen chart calculation and inference, followed by a GitHub update. Implement time-based rotating-plate Qimen using the split-and-supplement (拆补) method, fixed China civil time UTC+08:00, solar-term instant boundaries, a declared 23:00 day rollover, and an explicit center-palace convention. Pin and license a deterministic calendar dependency; never ask AI to calculate a chart. Show four pillars, term/three-yuan/ju, xun leader, chief star/door, nine palaces with earth/heaven stems, stars, doors, deities, void/horse and a reproducible rule trace. Provide an immediate chart-based symbolic outcome, evidence and scenario/action/revision notes for a selected topic, without AI credentials or empirical probability claims. Optional question text stays local and is not treated as factual verification. Add clickable palace details, JSON export with an explicit question opt-in, clear, bilingual/responsive UI and an active homepage/nav entry. Validate input and share the engine with a server endpoint. Verify independent worked vectors, calendar/term/day/hour boundaries, all 18 ju and 60 hourly combinations, input errors, privacy and real browser flows; update source/license/release evidence. The owner's request supersedes earlier planned-only scope and authorizes the existing GitHub main destination, not production/DNS/Forge changes.
+
 Baseline: `Agent/MysticAtlas_01_项目开发任务书.md`, reviewed 2026-11-15 (Asia/Shanghai).
 
-Current scope amendments: the owner subsequently authorized GitHub publication, requested direct predictive results, and explicitly requested the face module. The historical baseline below is superseded for those points by the extension sections at the end. Application 1.3.0 implements local face landmarks/geometry; Qimen remains planned. Production/DNS/Forge authorization is still outside scope.
+Current scope amendments: the owner subsequently authorized GitHub publication and explicitly requested direct predictive results, face geometry and Qimen. The historical baseline below is superseded for those points by the extension sections. Application 1.4.0 implements all three modules under their declared conventions. Production/DNS/Forge authorization is still outside scope.
 
 ## Workspace and scope
 
