@@ -1,6 +1,6 @@
 # MysticAtlas 1.0.0 release report
 
-Historical V1 baseline. The current application is **1.1.0** with requested 推演预测 support; use [FORECAST_RELEASE_REPORT](FORECAST_RELEASE_REPORT.md) for the extension's current verification. The original evidence below is retained as executed.
+Historical V1 baseline. The current application is **1.2.0** with direct question-linked results; use [DIRECT_ANSWER_RELEASE_REPORT](DIRECT_ANSWER_RELEASE_REPORT.md) for current verification. The original evidence below is retained as executed.
 
 Date: **2026-11-15 (Asia/Shanghai)**. Workspace: `D:\Project\Web\MysticAtlas`. Branch: `main`. Tested application milestone: **`9652137`**; final evidence/documentation is committed afterward. Exact history is in `artifacts/video-evidence/git-history.txt` and `git log --oneline`.
 

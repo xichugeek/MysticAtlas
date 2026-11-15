@@ -12,9 +12,27 @@ afterEach(async () => {
 });
 async function start(ai?: AIService, production = true) {
   const app = createApp(ai, { production, origin: 'https://example.test' });
-  const s = await new Promise<Server>((resolve) => {
-    const server = app.listen(0, '127.0.0.1', () => resolve(server));
-  });
+  let s!: Server;
+  // A Windows ephemeral port can land on a Fetch-forbidden port. Retry only that
+  // fixture condition; do not mask application errors or retry test assertions.
+  for (let attempt = 0; attempt < 8; attempt++) {
+    s = await new Promise<Server>((resolve) => {
+      const server = app.listen(0, '127.0.0.1', () => resolve(server));
+    });
+    const address = s.address();
+    if (!address || typeof address === 'string') throw Error('No address');
+    try {
+      await fetch(`http://127.0.0.1:${address.port}/api/health`);
+      break;
+    } catch (error) {
+      await new Promise<void>((resolve) => s.close(() => resolve()));
+      if (
+        (error as { cause?: { message?: string } }).cause?.message !== 'bad port' ||
+        attempt === 7
+      )
+        throw error;
+    }
+  }
   servers.push(s);
   const addr = s.address();
   if (!addr || typeof addr === 'string') throw Error('No address');
@@ -52,6 +70,17 @@ function output() {
     citations: [{ hexagramId: chart.primary.id, kind: 'judgment', quote: chart.primary.judgment }],
     context: 'Historical symbols can provide a lens for reading.',
     forecast: {
+      conclusion: {
+        verdict: 'Possible with conditions',
+        answer:
+          'For the question asked, the symbolic reading suggests an opening if support develops.',
+        reasons: [
+          'The primary lens describes initiative.',
+          'The transformed lens calls for boundaries.',
+        ],
+        turningPoint: 'Check whether a clear response and support appear.',
+        nextStep: 'Ask one specific clarifying question.',
+      },
       trend: 'A new factor may need clarification if it appears.',
       scenarios: [
         {
@@ -213,9 +242,26 @@ describe('AI adapter — MOCK provider only, no real API', () => {
       lang: 'zh',
     });
     expect(response.status).toBe(200);
+    const data = await response.clone().json();
+    expect(data.interpretation.forecast.conclusion.answer).toContain('question asked');
     expect(
       (await response.json()).interpretation.forecast.recommendations.length,
     ).toBeGreaterThanOrEqual(2);
+  });
+  it('rejects AI reports that omit the actual question conclusion', async () => {
+    const result = output();
+    const { conclusion, ...withoutConclusion } = result.forecast;
+    const api = await start(ai(provider({ ...result, forecast: withoutConclusion })));
+    const response = await api.post('/api/interpret', { values, theme: '这件事会推进吗？' });
+    expect(response.status).toBe(502);
+    expect((await response.json()).code).toBe('INVALID_AI_OUTPUT');
+  });
+  it('provides an explicit overall conclusion in the no-theme local API', async () => {
+    const api = await start();
+    const response = await api.post('/api/forecast', { values, lang: 'en' });
+    const data = await response.json();
+    expect(data.forecast.conclusion.question).toBe('');
+    expect(data.forecast.conclusion.verdict).toContain('Overall');
   });
   it('allows an honest statement that no accuracy rate is provided', async () => {
     const data = output();

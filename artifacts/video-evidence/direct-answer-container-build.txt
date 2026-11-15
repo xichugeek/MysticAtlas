@@ -1,0 +1,228 @@
+ Image mysticatlas:local Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 509B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 855B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a
+#3 DONE 4.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 134B done
+#4 DONE 0.0s
+
+#5 [build 1/6] FROM docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a
+#5 resolve docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 270.32kB 0.0s done
+#6 DONE 0.0s
+
+#7 [build 2/6] WORKDIR /app
+#7 CACHED
+
+#8 [build 3/6] COPY package.json package-lock.json ./
+#8 DONE 0.1s
+
+#9 [runtime 4/5] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#9 9.518
+#9 9.518 added 73 packages in 9s
+#9 9.519 npm notice
+#9 9.519 npm notice New major version of npm available! 10.9.9 -> 12.2.2
+#9 9.519 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+#9 9.519 npm notice To update run: npm install -g npm@12.2.2
+#9 9.519 npm notice
+#9 9.657 npm warn using --force Recommended protections disabled.
+#9 ...
+
+#10 [build 4/6] RUN npm ci --no-audit --no-fund
+#10 ...
+
+#9 [runtime 4/5] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#9 DONE 10.7s
+
+#10 [build 4/6] RUN npm ci --no-audit --no-fund
+#10 11.28
+#10 11.28 added 131 packages in 11s
+#10 11.28 npm notice
+#10 11.28 npm notice New major version of npm available! 10.9.9 -> 12.2.2
+#10 11.28 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+#10 11.28 npm notice To update run: npm install -g npm@12.2.2
+#10 11.28 npm notice
+#10 DONE 11.4s
+
+#11 [build 5/6] COPY . .
+#11 DONE 0.2s
+
+#12 [build 6/6] RUN npm run typecheck && npm test && npm run build
+#12 0.356
+#12 0.356 > mysticatlas@1.2.0 typecheck
+#12 0.356 > tsc --noEmit
+#12 0.356
+#12 4.051
+#12 4.051 > mysticatlas@1.2.0 test
+#12 4.051 > vitest run
+#12 4.051
+#12 4.378
+#12 4.378 [1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90m/app[39m
+#12 4.378
+#12 5.025  [32m✓[39m tests/engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[33m 317[2mms[22m[39m
+#12 5.078  [32m✓[39m tests/answer.test.ts [2m([22m[2m13 tests[22m[2m)[22m[33m 371[2mms[22m[39m
+#12 5.078    [32m✓[39m question-linked symbolic conclusions [2m(13)[22m
+#12 5.078      [33m[2m✓[22m[39m generates complete deterministic conclusions for all 4096 casts in both languages[33m 356[2mms[22m[39m
+#12 5.197  [32m✓[39m tests/api.test.ts [2m([22m[2m35 tests[22m[2m)[22m[33m 389[2mms[22m[39m
+#12 5.531  [32m✓[39m tests/forecast.test.ts [2m([22m[2m6 tests[22m[2m)[22m[33m 826[2mms[22m[39m
+#12 5.531    [32m✓[39m deterministic symbolic forecasting [2m(5)[22m
+#12 5.531      [33m[2m✓[22m[39m covers every one of 4096 inputs with complete, source-consistent scenarios in both languages[33m 802[2mms[22m[39m
+#12 5.539
+#12 5.539 [2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+#12 5.539 [2m      Tests [22m [1m[32m77 passed[39m[22m[90m (77)[39m
+#12 5.539 [2m   Start at [22m 14:18:23
+#12 5.540 [2m   Duration [22m 1.15s[2m (tests 70%, transform 21%, import 9%, worker 1%)[22m
+#12 5.541
+#12 5.663
+#12 5.663 > mysticatlas@1.2.0 build
+#12 5.663 > vite build && esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server/index.js
+#12 5.663
+#12 5.884 vite v8.3.8 building client environment for production...
+#12 5.896 transforming...
+#12 6.014 ✓ 2103 modules transformed.
+#12 6.095 rendering chunks...
+#12 6.136 computing gzip size...
+#12 6.141 dist/client/index.html                   0.69 kB │ gzip:   0.47 kB
+#12 6.141 dist/client/assets/index-Cs-77P-e.css   54.56 kB │ gzip:  11.61 kB
+#12 6.141 dist/client/assets/index-Duq0YV4P.js   395.07 kB │ gzip: 123.65 kB
+#12 6.141
+#12 6.144 ✓ built in 258ms
+#12 6.174
+#12 6.174   dist/server/index.js  178.5kb
+#12 6.174
+#12 6.174 ⚡ Done in 6ms
+#12 DONE 6.2s
+
+#13 [runtime 5/5] COPY --from=build --chown=node:node /app/dist ./dist
+#13 DONE 0.2s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 1.3s done
+#14 exporting manifest sha256:d6378a411462b82acaba658ddaa987dc7373701e2c3ac931a7d624871ca03238 0.0s done
+#14 exporting config sha256:3a541a2337d4ba4d2a258f3f0b3954340dcf8a2a0003131c43ba2038ece18440 0.0s done
+#14 exporting attestation manifest sha256:7a656f0a1616145c084f0c073fd0252194671d955e407b1f13e43b5634cbf0ea 0.0s done
+#14 exporting manifest list sha256:0ea5302fe70ea735f2d0a434c5e445f355e46da5b9403c2e408bacc1b5b3ead1
+#14 exporting manifest list sha256:0ea5302fe70ea735f2d0a434c5e445f355e46da5b9403c2e408bacc1b5b3ead1 0.0s done
+#14 naming to docker.io/library/mysticatlas:local done
+#14 unpacking to docker.io/library/mysticatlas:local
+#14 unpacking to docker.io/library/mysticatlas:local 0.7s done
+#14 DONE 2.2s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image mysticatlas:local Built
+ Image mysticatlas:local Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 509B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 855B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 134B done
+#4 DONE 0.0s
+
+#5 [build 1/6] FROM docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a
+#5 resolve docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 23.91kB done
+#6 DONE 0.0s
+
+#7 [build 2/6] WORKDIR /app
+#7 CACHED
+
+#8 [build 3/6] COPY package.json package-lock.json ./
+#8 CACHED
+
+#9 [build 4/6] RUN npm ci --no-audit --no-fund
+#9 CACHED
+
+#10 [build 5/6] COPY . .
+#10 DONE 0.2s
+
+#11 [build 6/6] RUN npm run typecheck && npm test && npm run build
+#11 0.325
+#11 0.325 > mysticatlas@1.2.0 typecheck
+#11 0.325 > tsc --noEmit
+#11 0.325
+#11 3.676
+#11 3.676 > mysticatlas@1.2.0 test
+#11 3.676 > vitest run
+#11 3.676
+#11 3.967
+#11 3.967 [1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90m/app[39m
+#11 3.967
+#11 4.582  [32m✓[39m tests/engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[33m 304[2mms[22m[39m
+#11 4.631  [32m✓[39m tests/answer.test.ts [2m([22m[2m13 tests[22m[2m)[22m[33m 353[2mms[22m[39m
+#11 4.631    [32m✓[39m question-linked symbolic conclusions [2m(13)[22m
+#11 4.631      [33m[2m✓[22m[39m generates complete deterministic conclusions for all 4096 casts in both languages[33m 338[2mms[22m[39m
+#11 4.782  [32m✓[39m tests/api.test.ts [2m([22m[2m35 tests[22m[2m)[22m[33m 389[2mms[22m[39m
+#11 5.060  [32m✓[39m tests/forecast.test.ts [2m([22m[2m6 tests[22m[2m)[22m[33m 785[2mms[22m[39m
+#11 5.061    [32m✓[39m deterministic symbolic forecasting [2m(5)[22m
+#11 5.061      [33m[2m✓[22m[39m covers every one of 4096 inputs with complete, source-consistent scenarios in both languages[33m 764[2mms[22m[39m
+#11 5.068
+#11 5.068 [2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+#11 5.068 [2m      Tests [22m [1m[32m77 passed[39m[22m[90m (77)[39m
+#11 5.068 [2m   Start at [22m 14:20:57
+#11 5.069 [2m   Duration [22m 1.09s[2m (tests 69%, transform 21%, import 9%, worker 1%)[22m
+#11 5.070
+#11 5.197
+#11 5.197 > mysticatlas@1.2.0 build
+#11 5.197 > vite build && esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server/index.js
+#11 5.197
+#11 5.429 vite v8.3.8 building client environment for production...
+#11 5.441 transforming...
+#11 5.585 ✓ 2103 modules transformed.
+#11 5.671 rendering chunks...
+#11 5.719 computing gzip size...
+#11 5.724 dist/client/index.html                   0.69 kB │ gzip:   0.47 kB
+#11 5.724 dist/client/assets/index-Cs-77P-e.css   54.56 kB │ gzip:  11.61 kB
+#11 5.724 dist/client/assets/index-B2PfumGr.js   395.13 kB │ gzip: 123.67 kB
+#11 5.724
+#11 5.727 ✓ built in 296ms
+#11 5.757
+#11 5.757   dist/server/index.js  178.5kb
+#11 5.757
+#11 5.757 ⚡ Done in 5ms
+#11 DONE 5.8s
+
+#12 [runtime 4/5] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#12 CACHED
+
+#13 [runtime 5/5] COPY --from=build --chown=node:node /app/dist ./dist
+#13 DONE 0.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.2s done
+#14 exporting manifest sha256:a52df1c58f577e6bb39182ce227e3cb9abbe395d9cd27f521ffae1cd10b7c71d 0.0s done
+#14 exporting config sha256:a16150b7a1fe3bf061d6a495816aea013512b8fd8c9cd8927be04c2ec0d0a5eb 0.0s done
+#14 exporting attestation manifest sha256:40cedbccebcbe431009617c59b9c8e29a20b516041d83a5d7d0977a94f974efa 0.0s done
+#14 exporting manifest list sha256:5b7458b00924b1d0f51ccbea2feac041b7de8a27f8b24d91fd5fc4ec03062c33
+#14 exporting manifest list sha256:5b7458b00924b1d0f51ccbea2feac041b7de8a27f8b24d91fd5fc4ec03062c33 0.0s done
+#14 naming to docker.io/library/mysticatlas:local done
+#14 unpacking to docker.io/library/mysticatlas:local 0.0s done
+#14 DONE 0.4s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image mysticatlas:local Built

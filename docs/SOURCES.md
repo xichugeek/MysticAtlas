@@ -29,6 +29,8 @@ Remaining scholarly work: compare disputed readings and all judgments against a 
 
 ## Original V1.1 forecast prompts
 
+V1.2 adds `engines/forecast/judgments.ts` and `answer.ts`: an original 64-entry disposition table, explicit combination rules and limited question-form matching. The labels “偏向会 / 暂偏否 / 有条件可成” are authored symbolic judgments, not a recovered ancient yes/no method, an empirical prediction, a factual premise check or a full local language model. A blocked primary followed by a favorable transformed pattern is presented as present obstruction with a possible later opening. This authorship/boundary is displayed beside the direct result. AI direct conclusions retain the same source/ID checks and are separately labeled.
+
 `engines/forecast/profiles.ts` contains MysticAtlas-authored Chinese/English prompts for all 64 hexagrams. Motifs are symbolic reading lenses, not new classical quotations, licensed modern translations, traditional event-date rules or claims of empirical accuracy. Stage metaphors, scenarios and action suggestions are original MIT-licensed commentary. Source-linked judgments and moving-line quotations continue to use the pinned classical dataset and disclose pending variants. No new third-party source or predictive dataset was added for this extension.
 
 ## References inspected, not redistributed

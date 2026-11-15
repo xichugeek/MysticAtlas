@@ -1,0 +1,74 @@
+
+> mysticatlas@1.2.0 test:e2e
+> playwright test
+
+
+Running 26 tests using 1 worker
+
+(node:46436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\e2e\flows.spec.ts:20:1 › sixth line automatically opens a question-linked verdict for the screenshot cast (2.6s)
+  ok  2 [desktop] › tests\e2e\flows.spec.ts:61:1 › empty question is explicit and the direct question is safely rendered as text (2.4s)
+  ok  3 [desktop] › tests\e2e\flows.spec.ts:78:1 › local forecasting gives source-based scenarios, actions and moving-line prompts without a POST (1.8s)
+  ok  4 [desktop] › tests\e2e\flows.spec.ts:118:1 › unchanged forecasting and English narrow layouts do not invent a turning point (1.4s)
+  ok  5 [desktop] › tests\e2e\flows.spec.ts:135:1 › MOCK AI forecast renders separately and AI failure preserves the local forecast (1.7s)
+  ok  6 [desktop] › tests\e2e\flows.spec.ts:215:1 › home and every core page render in both languages without overflow (921ms)
+  ok  7 [desktop] › tests\e2e\flows.spec.ts:250:1 › six incremental Web Crypto casts, animation skip, undo and restart (4.3s)
+  ok  8 [desktop] › tests\e2e\flows.spec.ts:274:1 › manual golden case 乾 → 姤, moving bottom line and nuclear 乾 (1.9s)
+  ok  9 [desktop] › tests\e2e\flows.spec.ts:299:1 › manual coin faces produce all old yin then transformed heaven (946ms)
+  ok 10 [desktop] › tests\e2e\flows.spec.ts:313:1 › atlas search, upper/lower filters and full source detail (612ms)
+  ok 11 [desktop] › tests\e2e\flows.spec.ts:340:1 › history is opt-in, exportable, restorable and clearable; theme is omitted by default (1.8s)
+  ok 12 [desktop] › tests\e2e\flows.spec.ts:372:1 › reduced motion and keyboard controls complete an English reading (606ms)
+  ok 13 [desktop] › tests\e2e\flows.spec.ts:390:1 › corrupted local storage fails safely and saved HTML is rendered as text (344ms)
+(node:41752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  14 [mobile] › tests\e2e\flows.spec.ts:20:1 › sixth line automatically opens a question-linked verdict for the screenshot cast (1.8s)
+(node:4056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 15 [mobile] › tests\e2e\flows.spec.ts:61:1 › empty question is explicit and the direct question is safely rendered as text (2.7s)
+  ok 16 [mobile] › tests\e2e\flows.spec.ts:78:1 › local forecasting gives source-based scenarios, actions and moving-line prompts without a POST (2.2s)
+  ok 17 [mobile] › tests\e2e\flows.spec.ts:118:1 › unchanged forecasting and English narrow layouts do not invent a turning point (2.4s)
+  ok 18 [mobile] › tests\e2e\flows.spec.ts:135:1 › MOCK AI forecast renders separately and AI failure preserves the local forecast (2.1s)
+  ok 19 [mobile] › tests\e2e\flows.spec.ts:215:1 › home and every core page render in both languages without overflow (1.1s)
+  ok 20 [mobile] › tests\e2e\flows.spec.ts:250:1 › six incremental Web Crypto casts, animation skip, undo and restart (4.3s)
+  ok 21 [mobile] › tests\e2e\flows.spec.ts:274:1 › manual golden case 乾 → 姤, moving bottom line and nuclear 乾 (3.5s)
+  ok 22 [mobile] › tests\e2e\flows.spec.ts:299:1 › manual coin faces produce all old yin then transformed heaven (1.1s)
+  ok 23 [mobile] › tests\e2e\flows.spec.ts:313:1 › atlas search, upper/lower filters and full source detail (739ms)
+  ok 24 [mobile] › tests\e2e\flows.spec.ts:340:1 › history is opt-in, exportable, restorable and clearable; theme is omitted by default (2.6s)
+  ok 25 [mobile] › tests\e2e\flows.spec.ts:372:1 › reduced motion and keyboard controls complete an English reading (614ms)
+  ok 26 [mobile] › tests\e2e\flows.spec.ts:390:1 › corrupted local storage fails safely and saved HTML is rendered as text (395ms)
+
+
+  1) [mobile] › tests\e2e\flows.spec.ts:20:1 › sixth line automatically opens a question-linked verdict for the screenshot cast
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0
+    Received:    -59.921875
+
+      37 |   await expect(page.locator('.diagram-name h2')).toHaveText(['困', '萃', '家人']);
+      38 |   const box = await answer.getByTestId('prediction-verdict').boundingBox();
+    > 39 |   expect(box!.y).toBeGreaterThanOrEqual(0);
+         |                  ^
+      40 |   expect(box!.y).toBeLessThan(page.viewportSize()!.height);
+      41 |   expect(posts).toEqual([]);
+      42 |   expect(page.url()).not.toContain(encodeURIComponent(question));
+        at D:\Project\Web\MysticAtlas\tests\e2e\flows.spec.ts:39:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    output\playwright\results\flows-sixth-line-automatic-2606d-ict-for-the-screenshot-cast-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: output\playwright\results\flows-sixth-line-automatic-2606d-ict-for-the-screenshot-cast-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    output\playwright\results\flows-sixth-line-automatic-2606d-ict-for-the-screenshot-cast-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace output\playwright\results\flows-sixth-line-automatic-2606d-ict-for-the-screenshot-cast-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [mobile] › tests\e2e\flows.spec.ts:20:1 › sixth line automatically opens a question-linked verdict for the screenshot cast
+  25 passed (50.5s)

@@ -1,5 +1,7 @@
 # MysticAtlas 1.1.0 — 推演预测
 
+Historical V1.1 acceptance. Current V1.2 addresses the later feedback that a generic scenario page was not a direct prediction result. See [DIRECT_ANSWER_RELEASE_REPORT](DIRECT_ANSWER_RELEASE_REPORT.md) for the new explicit conclusion and automatic transition.
+
 Executed 2026-11-15, Asia/Shanghai. Requested by the owner after V1.0: “推演预测的能力加进去”. Local workspace `D:\Project\Web\MysticAtlas`; base commit `5573a3d`, branch `main`. Public push and production deployment remain outside this extension.
 
 ## Delivered behavior

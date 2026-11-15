@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, BookmarkPlus, Check, Copy, RotateCcw, Sparkles } from 'lucide-react';
 import { getHexagram, type CastResult } from '../engines/iching';
 import type { Interpretation } from '../server/ai';
 import { ClassicalText, DiagramCard } from './components';
 import { copy, type Lang } from './i18n';
 import { AIForecastReading, Forecast } from './Forecast';
+import { generateDirectAnswer } from '../engines/forecast/answer';
+import { DirectAnswerCard } from './DirectAnswer';
 
 export function Result({
   result,
@@ -12,14 +14,20 @@ export function Result({
   theme,
   onSave,
   reset,
+  onEdit,
 }: {
   result: CastResult;
   lang: Lang;
   theme: string;
   onSave: (withTheme: boolean) => boolean;
   reset: () => void;
+  onEdit: () => void;
 }) {
   const t = copy[lang];
+  const localAnswer = useMemo(
+    () => generateDirectAnswer(result.values, theme, lang),
+    [result, theme, lang],
+  );
   const [saved, setSaved] = useState(false);
   const [withTheme, setWithTheme] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -100,12 +108,34 @@ export function Result({
         <h1>{t.resultTitle}</h1>
         <p>{t.resultSub}</p>
       </div>
+      <DirectAnswerCard
+        local={localAnswer}
+        ai={ai?.forecast.conclusion || null}
+        lang={lang}
+        busy={busy}
+        aiMode={aiMode}
+        onRequest={interpret}
+        statusText={
+          aiStatus
+            ? aiStatus === 'disabled'
+              ? t.aiDisabled
+              : aiStatus === 'unsafe'
+                ? t.aiUnsafe
+                : aiStatus === 'limited'
+                  ? t.aiLimited
+                  : t.aiFailure
+            : ''
+        }
+      />
       <div className="result-toolbar">
         <div className="raw-values">
           <span>{t.raw}</span>
           <code>{result.values.join(' · ')}</code>
         </div>
         <div className="toolbar-actions">
+          <button className="button secondary small-button" onClick={onEdit}>
+            {lang === 'zh' ? '修改最后一爻' : 'Edit last line'}
+          </button>
           <button
             className="button secondary small-button"
             onClick={() => {
@@ -174,29 +204,9 @@ export function Result({
           </span>
           <div>
             <h2>{t.aiTitle}</h2>
-            <span className="mono status-dot">
-              AI · {aiMode === 'enabled' ? 'ON' : aiMode === 'disabled' ? 'OFF' : '—'}
-            </span>
           </div>
         </div>
         <p className="muted">{t.aiSub}</p>
-        {!ai && (
-          <button className="button secondary" onClick={interpret} disabled={busy}>
-            <Sparkles size={17} />
-            {busy ? t.aiLoading : t.aiButton}
-          </button>
-        )}
-        {aiStatus && (
-          <p className="notice" role="status">
-            {aiStatus === 'disabled'
-              ? t.aiDisabled
-              : aiStatus === 'unsafe'
-                ? t.aiUnsafe
-                : aiStatus === 'limited'
-                  ? t.aiLimited
-                  : t.aiFailure}
-          </p>
-        )}
         {ai && (
           <div className="ai-reading">
             <h3>{t.summary}</h3>

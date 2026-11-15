@@ -1,0 +1,99 @@
+
+> mysticatlas@1.2.0 check
+> npm run typecheck && npm test && npm run build && npm run scan:secrets
+
+
+> mysticatlas@1.2.0 typecheck
+> tsc --noEmit
+
+
+> mysticatlas@1.2.0 test
+> vitest run
+
+
+ RUN  v5.1.0 D:/Project/Web/MysticAtlas
+
+
+ Test Files  4 passed (4)
+      Tests  77 passed (77)
+   Start at  22:17:48
+   Duration  859ms (tests 78%, import 13%, transform 7%, worker 1%)
+
+
+> mysticatlas@1.2.0 build
+> vite build && esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server/index.js
+
+vite v8.3.8 building client environment for production...
+transforming...
+✓ 2103 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/client/index.html                   0.69 kB │ gzip:   0.47 kB
+dist/client/assets/index-Cs-77P-e.css   54.56 kB │ gzip:  11.61 kB
+dist/client/assets/index-Duq0YV4P.js   395.07 kB │ gzip: 123.65 kB
+
+✓ built in 330ms
+
+  dist\server\index.js  178.5kb
+
+Done in 9ms
+
+> mysticatlas@1.2.0 scan:secrets
+> node scripts/scan-secrets.mjs
+
+Secret-pattern scan: 85 text files, 0 findings. Heuristic only; does not replace manual review.
+
+> mysticatlas@1.2.0 check
+> npm run typecheck && npm test && npm run build && npm run scan:secrets
+
+
+> mysticatlas@1.2.0 typecheck
+> tsc --noEmit
+
+
+> mysticatlas@1.2.0 test
+> vitest run
+
+
+ RUN  v5.1.0 D:/Project/Web/MysticAtlas
+
+
+ Test Files  4 passed (4)
+      Tests  77 passed (77)
+   Start at  22:19:40
+   Duration  935ms (tests 84%, import 12%, transform 3%, worker 1%)
+
+
+> mysticatlas@1.2.0 build
+> vite build && esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server/index.js
+
+vite v8.3.8 building client environment for production...
+transforming...
+✓ 2103 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/client/index.html                   0.69 kB │ gzip:   0.47 kB
+dist/client/assets/index-Cs-77P-e.css   54.56 kB │ gzip:  11.61 kB
+dist/client/assets/index-B2PfumGr.js   395.13 kB │ gzip: 123.67 kB
+
+✓ built in 278ms
+
+  dist\server\index.js  178.5kb
+
+Done in 5ms
+
+> mysticatlas@1.2.0 scan:secrets
+> node scripts/scan-secrets.mjs
+
+Secret-pattern scan: 87 text files, 0 findings. Heuristic only; does not replace manual review.
+
+> mysticatlas@1.2.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> mysticatlas@1.2.0 scan:secrets
+> node scripts/scan-secrets.mjs
+
+Secret-pattern scan: 91 text files, 0 findings. Heuristic only; does not replace manual review.

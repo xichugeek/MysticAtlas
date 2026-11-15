@@ -9,13 +9,71 @@ async function manual(page: Page, values: number[] = [9, 7, 7, 7, 7, 7]) {
     await page.locator(`input[name="line-value"][value="${v}"]`).check();
     await page.getByRole('button', { name: '记录这一爻', exact: true }).click();
   }
-  await page.getByRole('link', { name: '查看卦象', exact: true }).click();
+  await expect(page).toHaveURL(/#result$/);
 }
 async function noOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
   );
 }
+
+test('sixth line automatically opens a question-linked verdict for the screenshot cast', async ({
+  page,
+}, info) => {
+  const posts: string[] = [];
+  page.on('request', (r) => {
+    if (r.method() === 'POST') posts.push(r.url());
+  });
+  await page.goto('/#cast');
+  const question = '某位创始人会回到公司担任负责人吗？';
+  await page.getByLabel('想推演的主题').fill(question);
+  await manual(page, [8, 9, 8, 7, 7, 8]);
+  const answer = page.getByRole('region', { name: '预测结果', exact: true });
+  await expect(answer).toBeVisible();
+  await expect(answer).toContainText(question);
+  await expect(answer.getByTestId('prediction-verdict')).toHaveText('暂偏否');
+  await expect(answer).toContainText('暂偏不会按原设想发生');
+  await expect(answer).toContainText('先受阻，后有转机');
+  await expect(page.locator('.diagram-name h2')).toHaveText(['困', '萃', '家人']);
+  const box = await answer.getByTestId('prediction-verdict').boundingBox();
+  expect(box!.y).toBeGreaterThanOrEqual(0);
+  expect(box!.y).toBeLessThan(page.viewportSize()!.height);
+  expect(posts).toEqual([]);
+  expect(page.url()).not.toContain(encodeURIComponent(question));
+  expect(await page.evaluate(() => localStorage.getItem('mysticatlas.history.v1'))).toBeNull();
+  await noOverflow(page);
+  await page.evaluate(() => {
+    (document.activeElement as HTMLElement)?.blur();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+  await page.screenshot({
+    path: `artifacts/video-evidence/direct-answer-zh-${info.project.name}.png`,
+  });
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  const english = page.getByRole('region', { name: 'Prediction result', exact: true });
+  await expect(english.getByTestId('prediction-verdict')).toHaveText('Leans no for now');
+  for (const width of [320, 390, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await noOverflow(page);
+  }
+});
+
+test('empty question is explicit and the direct question is safely rendered as text', async ({
+  page,
+}) => {
+  await manual(page, [7, 7, 7, 7, 7, 7]);
+  const answer = page.getByRole('region', { name: '预测结果', exact: true });
+  await expect(answer).toContainText('未填写具体问题');
+  await expect(answer.getByTestId('prediction-verdict')).toContainText('整体');
+  await page.getByRole('link', { name: '重新开始', exact: true }).click();
+  await page.getByLabel('想推演的主题').fill('<img src=x onerror="window.QUESTION_XSS=1">');
+  await manual(page);
+  await expect(answer.locator('.prediction-question')).toContainText('<img');
+  await expect(answer.locator('.prediction-question img')).toHaveCount(0);
+  expect(
+    await page.evaluate(() => (window as unknown as { QUESTION_XSS?: number }).QUESTION_XSS),
+  ).toBeUndefined();
+});
 
 test('local forecasting gives source-based scenarios, actions and moving-line prompts without a POST', async ({
   page,
@@ -96,6 +154,13 @@ test('MOCK AI forecast renders separately and AI failure preserves the local for
           questions: ['What changed?', 'What can you check?'],
           limitations: 'Mock only; not a real provider.',
           forecast: {
+            conclusion: {
+              verdict: 'MOCK_SYMBOLIC_VERDICT',
+              answer: 'MOCK_DIRECT_ANSWER_TO_QUESTION',
+              reasons: ['Mock primary reasoning.', 'Mock transformed reasoning.'],
+              turningPoint: 'Check a real response.',
+              nextStep: 'Ask one clear question.',
+            },
             trend: 'MOCK_THEME_TREND',
             scenarios: ['opening', 'continuity', 'friction'].map((kind) => ({
               kind,
@@ -122,6 +187,9 @@ test('MOCK AI forecast renders separately and AI failure preserves the local for
     });
   });
   await page.getByRole('button', { name: '请求 AI 推演预测', exact: true }).click();
+  await expect(page.getByRole('region', { name: '预测结果', exact: true })).toContainText(
+    'MOCK_DIRECT_ANSWER_TO_QUESTION',
+  );
   await expect(page.getByRole('region', { name: '结合主题的 AI 推演', exact: true })).toContainText(
     'MOCK_THEME_TREND',
   );
@@ -185,15 +253,18 @@ test('six incremental Web Crypto casts, animation skip, undo and restart', async
   await expect(page.getByRole('status')).toContainText('初爻');
   await expect(page.locator('.cast-progress .hex-row:not(.is-pending)')).toHaveCount(1);
   await page.getByLabel('跳过动画', { exact: true }).check();
-  for (let i = 1; i < 6; i++) {
+  for (let i = 1; i < 5; i++) {
     await page.getByRole('button', { name: '投掷铜钱', exact: true }).click();
     await expect(page.locator('.cast-progress .hex-row:not(.is-pending)')).toHaveCount(i + 1);
   }
-  await expect(page.getByRole('link', { name: '查看卦象', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: '撤回一爻', exact: true }).click();
+  await page.getByRole('button', { name: '投掷铜钱', exact: true }).click();
+  await expect(page).toHaveURL(/#result$/);
+  await expect(page.getByRole('region', { name: '预测结果', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: '修改最后一爻', exact: true }).click();
+  await expect(page).toHaveURL(/#cast$/);
   await expect(page.locator('.cast-progress .hex-row:not(.is-pending)')).toHaveCount(5);
   await page.getByRole('button', { name: '投掷铜钱', exact: true }).click();
-  await page.getByRole('link', { name: '查看卦象', exact: true }).click();
+  await expect(page).toHaveURL(/#result$/);
   await expect(page.locator('.result-diagrams .diagram-card')).toHaveCount(3);
   await noOverflow(page);
   await page.getByRole('link', { name: '重新开始', exact: true }).click();
@@ -220,7 +291,7 @@ test('manual golden case 乾 → 姤, moving bottom line and nuclear 乾', async
   });
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await expect(
-    page.getByRole('heading', { name: 'The pattern is formed. Take a closer look.' }),
+    page.getByRole('heading', { name: 'Your reading, with a clear verdict' }),
   ).toBeVisible();
   await noOverflow(page);
 });
@@ -234,8 +305,7 @@ test('manual coin faces produce all old yin then transformed heaven', async ({ p
   await expect(page.locator('.coin-sum')).toHaveText('2 + 2 + 2 = 6');
   for (let i = 0; i < 6; i++)
     await page.getByRole('button', { name: '记录这一爻', exact: true }).click();
-  await expect(page.getByRole('button', { name: /铜钱 1: 2/ })).toBeDisabled();
-  await page.getByRole('link', { name: '查看卦象', exact: true }).click();
+  await expect(page).toHaveURL(/#result$/);
   await expect(page.locator('.diagram-name h2')).toHaveText(['坤', '乾', '坤']);
   await expect(page.locator('.line-texts .highlight')).toHaveCount(6);
 });
@@ -307,9 +377,10 @@ test('reduced motion and keyboard controls complete an English reading', async (
   for (let i = 0; i < 6; i++) {
     await toss.focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('.cast-progress .hex-row:not(.is-pending)')).toHaveCount(i + 1);
+    if (i < 5)
+      await expect(page.locator('.cast-progress .hex-row:not(.is-pending)')).toHaveCount(i + 1);
   }
-  await page.getByRole('link', { name: 'View reading', exact: true }).click();
+  await expect(page).toHaveURL(/#result$/);
   await expect(page.locator('.result-diagrams .diagram-card')).toHaveCount(3);
   await noOverflow(page);
   await page.getByRole('button', { name: 'Request an AI forecast', exact: true }).click();

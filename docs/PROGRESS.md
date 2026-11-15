@@ -1,5 +1,15 @@
 # Progress / development evidence
 
+## V1.2 — Direct conclusion correction (2026-11-15)
+
+- Feedback screenshot showed all six values but the user was still behind the “查看卦象” gate. General scenarios also did not directly answer the question. Added automatic result navigation, a first-screen question-linked symbolic verdict and explicit original 64-disposition rules. Existing-question matching is limited and labeled; it does not verify real-world premises.
+- Exact screenshot numeric cast `[8,9,8,7,7,8]` is 47 困 → 45 萃, nuclear 37 家人, moving line 2. A synthetic founder-return question produces local verdict 暂偏否 and trajectory 先受阻，后有转机. This is symbolic interpretation, not a claim about a real executive or current corporate role.
+- Added explicit handling for yes/no, timing, choice, method, absent question, selected adverse words/negation and evidence-required questions. Question remains local by default. Optional AI must return an actual structured conclusion; missing conclusion fails validation. AI controls/status moved beside the result.
+- Typecheck/build/secret scan and **77 unit/API tests** pass (23 engine + 6 scenarios + 13 direct answer + 35 API). A first unit run encountered a Windows ephemeral port forbidden by Fetch; fixture now retries only this startup condition, without retrying assertions or masking application errors.
+- First production E2E: 25/26 passed, mobile verdict visibility failed. Fixed actual navigation scroll placement after the result DOM commits using a layout effect and instant scroll; did not weaken the viewport assertion. Final rebuilt-container regression is in progress.
+
+- Final rebuilt container: **77/77 unit/API tests**, production build and seven smoke checks pass. Final desktop/mobile browser regression: **26/26 PASS**, 44.5 seconds. The screenshot's numeric case now has an exact question, 暂偏否 conclusion and obstruction/opening trajectory visible in the initial viewport; English narrow layouts and no-upload/escaped-question handling pass. Actual desktop/mobile captures inspected. See DIRECT_ANSWER_RELEASE_REPORT and direct-answer evidence.
+
 ## 2026-11-15 — M1
 
 - Read the supplied task document and user network rules; no proxy or registry changes.

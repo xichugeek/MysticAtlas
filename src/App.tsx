@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowRight,
@@ -47,14 +47,19 @@ export function App() {
   const main = useRef<HTMLElement>(null);
   const result = useMemo(() => (values.length === 6 ? calculate(values) : null), [values]);
   useEffect(() => {
+    if (route === 'cast' && result) location.hash = 'result';
+  }, [route, result]);
+  useEffect(() => {
     const navigate = () => {
       setRoute(location.hash.slice(1) || 'home');
-      window.scrollTo(0, 0);
-      main.current?.focus({ preventScroll: true });
     };
     window.addEventListener('hashchange', navigate);
     return () => window.removeEventListener('hashchange', navigate);
   }, []);
+  useLayoutEffect(() => {
+    main.current?.focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [route]);
   useEffect(() => {
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     document.title = `MysticAtlas · ${lang === 'zh' ? '易境' : 'An atlas of change'}`;
@@ -272,6 +277,10 @@ export function App() {
             theme={theme}
             onSave={save}
             reset={reset}
+            onEdit={() => {
+              setValues(values.slice(0, -1));
+              location.hash = 'cast';
+            }}
           />
         ) : route === 'library' ? (
           <Library lang={lang} />

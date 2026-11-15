@@ -1,8 +1,9 @@
 import { calculate } from '../iching';
 import collation from '../../knowledge/collation.json';
 import { getForecastProfile } from './profiles';
+import { generateDirectAnswer } from './answer';
 
-export const FORECAST_VERSION = 'symbolic-scenarios/1.0.0';
+export const FORECAST_VERSION = 'symbolic-scenarios/1.1.0';
 export type ForecastLang = 'zh' | 'en';
 const positions = {
   zh: ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'],
@@ -28,7 +29,7 @@ const stagePrompts = {
 };
 
 /** Deterministic symbolic scenarios. Does not infer real-world probabilities or analyze a theme. */
-export function generateForecast(input: unknown, lang: ForecastLang = 'zh') {
+export function generateForecast(input: unknown, lang: ForecastLang = 'zh', question = '') {
   const chart = calculate(input);
   const primary = getForecastProfile(chart.primary.id, lang);
   const changed = getForecastProfile(chart.changed.id, lang);
@@ -186,6 +187,7 @@ export function generateForecast(input: unknown, lang: ForecastLang = 'zh') {
       changedId: chart.changed.id,
       nuclearId: chart.nuclear.id,
     },
+    conclusion: generateDirectAnswer(chart.values, question, lang),
     summary: zh
       ? `以「${primary[0]}」观察现状，${hasMoving ? `以「${changed[0]}」作为待验证的变化方向` : '以延续与微调作为待验证的方向'}；用「${inner[0]}」补充观察。`
       : `Read the present through ${primary[0].toLowerCase()}, explore ${hasMoving ? changed[0].toLowerCase() : 'continuity and small adjustments'} as a direction to test, and use ${inner[0].toLowerCase()} as a supporting lens.`,

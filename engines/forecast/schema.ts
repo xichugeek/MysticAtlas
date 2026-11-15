@@ -2,6 +2,15 @@ import { z } from 'zod';
 const short = z.string().trim().min(1).max(600);
 export const aiForecastSchema = z
   .object({
+    conclusion: z
+      .object({
+        verdict: short,
+        answer: short,
+        reasons: z.array(short).min(1).max(3),
+        turningPoint: short,
+        nextStep: short,
+      })
+      .strict(),
     trend: short,
     scenarios: z
       .array(

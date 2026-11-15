@@ -4,6 +4,7 @@ import { App } from './App';
 import './style.css';
 import './variants.css';
 import './forecast.css';
+import './answer.css';
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />

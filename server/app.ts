@@ -95,7 +95,7 @@ export function createApp(
   app.get('/api/health', (_req, res) =>
     res.json({
       status: 'ok',
-      version: '1.1.0',
+      version: '1.2.0',
       algorithmVersion: ALGORITHM_VERSION,
       dataVersion: DATA_VERSION,
       forecastVersion: FORECAST_VERSION,

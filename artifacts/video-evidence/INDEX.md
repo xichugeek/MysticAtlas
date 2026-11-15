@@ -1,5 +1,15 @@
 # Evidence index
 
+## V1.2 direct-result correction
+
+- `direct-answer-zh-desktop.png`, `direct-answer-zh-mobile.png`: actual final production screenshots using the user's numeric cast and a synthetic founder-return question. The direct verdict is visible in the initial viewport; these viewport captures do not hide navigation.
+- `direct-answer-verification.txt`: actual 77-test/type/build/secret checks; `direct-answer-container-build.txt` includes Linux results as well.
+- `direct-answer-e2e.txt`: first production run, 25 passed / 1 mobile placement failure. Retained rather than replaced.
+- `direct-answer-e2e-final.txt`: final rebuilt-container run, 26 passed / 0 failed after the real navigation fix.
+- `direct-answer-container-smoke.json`: actual seven API/health/fallback/concurrency smoke checks.
+- `direct-answer-production.json`: actual health version, CSP and no-dev-client evidence from QA port 3003.
+- Full result/scenario screenshots are refreshed for V1.2. AI direct-answer success remains explicitly mocked. No empirical forecast accuracy or real corporate-role claim is made by these synthetic captures.
+
 All assets are captured from the actual local application using synthetic inputs. No credentials, real personal themes, live provider output, stock development footage or invented terminal results.
 
 Text captures retain actual tool messages; line endings and trailing whitespace are normalized for version control. The source snapshots under `knowledge/sources/` remain byte-exact and hash-checked.

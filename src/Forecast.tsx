@@ -23,7 +23,8 @@ const words = {
     condition: '成立条件',
     none: '当前没有动爻。先观察现有安排的延续与微调。',
     source: '经文依据',
-    themes: '本地内容按卦象组织，不分析你的主题语义；AI 可在主动请求后结合主题展开。',
+    themes:
+      '上方规则卦断会在本地匹配问题类型；这里补充卦象细节。人物、事件和问题前提均未联网查证；AI 可在主动请求后进一步解读。',
     scope: '阶段比喻与趋势提示为自编解读，不是经典原文或必然预言。',
     pending: '此条经文有待核验异文。',
     aiTitle: '结合主题的 AI 推演',
@@ -49,7 +50,7 @@ const words = {
     none: 'No moving lines. Observe continuity and small adjustments in existing arrangements.',
     source: 'Classical references',
     themes:
-      'Local prompts follow the chart and do not analyze your theme. An explicit AI request can develop the theme further.',
+      'The verdict above matches question form locally; these are supporting chart details. People, events and premises are not fact-checked. An explicit AI request can refine the reading.',
     scope:
       'Stage metaphors and trends are original prompts, not classical quotations or inevitable predictions.',
     pending: 'This line has a textual variant pending review.',

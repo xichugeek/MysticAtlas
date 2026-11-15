@@ -21,9 +21,11 @@ For cultural learning, entertainment and self-reflection. **No scientific predic
 
 ## Using predictive scenarios
 
+**V1.2 now gives a direct result**: the sixth completed line automatically opens the result page. The first screen shows the question, an explicit symbolic verdict (“Leans no for now”, “Leans yes” or “Possible with conditions”), reasons and revision conditions. Edit last line is supported. Local rules match question form; they do not fact-check people, events or premises. The opt-in AI request is beside the verdict. See [direct-result acceptance](docs/DIRECT_ANSWER_RELEASE_REPORT.md).
+
 Complete six casts or manual entry. The result page automatically shows **Predictive scenarios**: a present lens from the primary hexagram, a direction to test from the transformed pattern and a supporting nuclear lens. Moving-line details include positions, transitions and the actual classical passage. Improving, continuing and friction scenarios each state assumptions, observations and revision conditions. A chart with no moving lines explicitly uses continuity and small adjustments.
 
-Local mode follows chart rules and does not analyze or upload your theme. With a configured provider, **Request an AI forecast** can develop the theme into structured scenarios; local output remains available on failure. All 64 bilingual prompts and stage metaphors are original commentary, separate from source-linked quotations. This is conditional symbolic forecasting, not an empirically validated prediction model; it does not invent accuracy rates, event dates or guaranteed outcomes.
+Local mode matches simple question forms (yes/no, timing, choice or method) without uploading the theme. It is neither factual research nor full language-model understanding. With a configured provider, **Request an AI forecast** develops the question into a direct conclusion and scenarios; the local verdict remains on failure. The 64 dispositions, bilingual prompts and stage metaphors are original commentary, separate from quotations. This is symbolic divination, not an empirically validated prediction model; no accuracy rate, fixed event date or guaranteed outcome is invented.
 
 New API: `POST /api/forecast` with `{ "values": [9,7,7,7,7,7], "lang": "en" }`. No AI needed; theme text is not accepted. See the [forecast release report](docs/FORECAST_RELEASE_REPORT.md).
 
