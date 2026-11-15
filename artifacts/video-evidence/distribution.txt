@@ -1,0 +1,20 @@
+
+> mysticatlas@1.0.0 test:distribution
+> tsx scripts/distribution.ts
+
+{
+  "trials": 100000,
+  "source": "Node Web Crypto; diagnostic only, no statistical CI gate",
+  "counts": {
+    "6": 12425,
+    "7": 37315,
+    "8": 37757,
+    "9": 12503
+  },
+  "proportions": {
+    "6": 0.12425,
+    "7": 0.37315,
+    "8": 0.37757,
+    "9": 0.12503
+  }
+}

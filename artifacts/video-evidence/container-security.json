@@ -1,0 +1,30 @@
+{
+  "image": "sha256:dda3affd6375d19ec848794c57c22e8660faa1f08a9da1e4a021df8be735206a",
+  "user": "node",
+  "healthy": "healthy",
+  "readOnly": true,
+  "capabilitiesDropped": [
+    "ALL"
+  ],
+  "security": [
+    "no-new-privileges:true"
+  ],
+  "memoryBytes": 268435456,
+  "nanoCpus": 500000000,
+  "pids": 64,
+  "logging": {
+    "Type": "json-file",
+    "Config": {
+      "max-file": "2",
+      "max-size": "5m"
+    }
+  },
+  "ports": {
+    "3000/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "3001"
+      }
+    ]
+  }
+}

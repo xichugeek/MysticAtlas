@@ -37,3 +37,17 @@ Milestones M2–M6 are in progress; this file will record actual verification re
 - Launched isolated project `mysticatlas` on loopback **3001**, avoiding the dev server on 3000. Actual container became healthy; real HTTP health/data/golden/invalid/AI-off checks and 20 concurrent health requests passed. Log contained startup only.
 - Runtime inspection confirms non-root image, read-only rootfs, dropped capabilities, no-new-privileges, 256 MiB / 0.5 CPU / 64 PID limits and log rotation. Final rebuild/restart evidence and production-browser regression remain to be recorded.
 - Added CI, bilingual README, MIT/third-party notices, architecture, source and deployment/rollback documents. No public push or production/Forge operation.
+
+## 2026-11-15 — M5 final verification
+
+- Final local typecheck, 47 tests, production build and secret scan PASS. `format:check` initially found a wrapping issue in `server/app.ts`; fixed with Prettier and reran successfully. Both outputs are retained in `artifacts/video-evidence/verification.txt`.
+- Final npm audit: zero vulnerabilities of any severity (`audit.json`). Actual 100,000-cast counts: 12425 / 37315 / 37757 / 12503; report is diagnostic only (`distribution.txt`).
+- Rebuilt pinned Linux image, recreated only the MysticAtlas service on port 3001, ran six HTTP/concurrency checks, restarted it, waited for healthy and repeated all six checks successfully. Evidence: container-build/smoke/restart/security files. No server-side persistence is needed or claimed.
+- Final production-container E2E: **16/16 PASS**, 0 failed, 25.9 seconds locally. Covers the actual production CSP and bundled assets. Screenshots regenerated at the top of the document. Logs contain startup only. Image OS CVE scan is NOT EXECUTED; npm audit is not an OS scanner.
+- Real local commits: `883cbd9` engine/data, `190237a` bilingual product, `43f172f` APIs/AI, `9652137` CI/container/release preparation. No public push.
+
+## 2026-11-15 — M6
+
+- Completed RELEASE_REPORT and VIDEO_HANDOFF with real evidence, limitations, sources, safe reproduction commands and release authorization boundaries.
+- V1 local engineering acceptance passes. Live AI, physical devices, public GitHub/CI, production domain/TLS/Forge and scholarly critical-text certification remain unexecuted or pending review as explicitly documented.
+- Final teardown stops the owned dev/browser preview and removes only the isolated MysticAtlas QA service/network; Docker image is retained for reuse. Docker Desktop itself is not stopped, to avoid interfering with other local work.

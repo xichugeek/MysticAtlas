@@ -1,0 +1,5 @@
+9652137 (HEAD -> main) build: add locked container, CI and release preparation
+43f172f feat: add validated APIs and optional guarded AI adapter
+190237a feat: build bilingual casting experience and local journal
+883cbd9 feat: add verified I Ching engine and versioned classical corpus
+aeb649a docs: establish V1 scope and local delivery plan

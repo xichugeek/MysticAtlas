@@ -1,0 +1,36 @@
+{
+  "base": "http://127.0.0.1:3001",
+  "checks": [
+    {
+      "name": "health",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "64 records",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "golden Qian to Gou",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "reject invalid values",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "AI disabled fallback",
+      "status": "PASS",
+      "http": 503
+    },
+    {
+      "name": "20 concurrent health requests",
+      "status": "PASS",
+      "elapsedMs": 17
+    }
+  ],
+  "mode": "real HTTP; AI disabled; local diagnostic timing only"
+}

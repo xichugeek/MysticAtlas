@@ -1,0 +1,2 @@
+app-1  | MysticAtlas production · http://localhost:3000
+app-1  | MysticAtlas production · http://localhost:3000

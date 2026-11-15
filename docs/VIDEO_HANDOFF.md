@@ -46,7 +46,7 @@ Default and recorded browser mode: **disabled**. API unit tests: **mock provider
 ## Assets and release labels
 
 - Material directory: `artifacts/video-evidence/INDEX.md`, real desktop/mobile home and result screenshots plus final safe command output. Browser report and traces: `output/playwright/` (ignored). Large recordings must remain ignored.
-- README and local app: implemented and undergoing final verification.
+- README and local app: **已验收** in the stated local scope; 47 unit/API tests and 16 production-container browser tests pass. See RELEASE_REPORT and retained command output.
 - GitHub: remote target configured locally; public push **待审核 / not executed**.
-- Docker: real local build and health/smoke **已验收**; final restart/current-image regression status recorded in RELEASE_REPORT.
+- Docker: real local build, health/smoke, restart recovery, resource confinement and production-browser regression **已验收**. QA containers are removed at handoff; image retained. Local timings are not production performance benchmarks.
 - Production demo/Forge/DNS/TLS: **未执行**. The proposed domain is not evidence of availability. No fabricated online address, performance benchmark, recording, commit or test result.
