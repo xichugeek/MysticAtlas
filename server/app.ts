@@ -132,13 +132,11 @@ export function createApp(
       });
     } catch (error) {
       const failure = error instanceof AIError ? error : new AIError('AI_UNAVAILABLE', 502);
-      res
-        .status(failure.status)
-        .json({
-          status: failure.code === 'AI_DISABLED' ? 'disabled' : 'unavailable',
-          code: failure.code,
-          chart: result,
-        });
+      res.status(failure.status).json({
+        status: failure.code === 'AI_DISABLED' ? 'disabled' : 'unavailable',
+        code: failure.code,
+        chart: result,
+      });
     }
   });
   app.use('/api', (_req, res) => res.status(404).json({ code: 'NOT_FOUND' }));

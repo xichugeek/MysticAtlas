@@ -1,0 +1,79 @@
+# MysticAtlas · 易境
+
+西楚极客 / XichuGeek 的开源周易文化探索工具。用确定性的程序计算卦象，以经典资料辅助阅读，为当下留一点思考空间。
+
+[English](README.md) · [数据来源](docs/SOURCES.md) · [架构](docs/ARCHITECTURE.md) · [验收报告](docs/RELEASE_REPORT.md)
+
+![易境桌面首页](artifacts/video-evidence/home-zh-desktop.png)
+
+**仅供传统文化学习、娱乐与自我反思，不具备科学预测能力，不用于投资、医疗、法律等重大决策。** 不做账号、支付、命运打分或付费消灾。
+
+## 已实现的 V1 功能
+
+- 三枚铜钱动画，明确投掷六次、逐爻生成；支持跳过动画、撤回与重新开始。随机数来自浏览器 Web Crypto。
+- 手动逐爻选择 6、7、8、9，也可逐枚输入铜钱的 2/3 两面。
+- 本卦、变卦、互卦对照；显示上下卦、卦序、动爻位置、原始爻值和算法版本。
+- 64 卦、384 爻辞完整检索，按上下卦筛选，提供固定版本的来源链接及待核验异文对照。
+- 中英文核心流程、手机布局、键盘操作、减少动画偏好。
+- 主动保存本地记录，可另行勾选保存主题；支持 JSON 导出、清空和不含主题的文本分享。
+- 服务端可选 AI 适配层，输出结构与引用验证、超时和限额保护。默认关闭，不配置也能完整运行基础功能。
+
+经典原文保留中文；英文短标题为阅读标签，不冒充经典译文。奇门与面相仅显示“规划中”，没有开展第二、三期开发。
+
+## 快速启动
+
+需要 Node **22.12+**，在本项目目录执行：
+
+```sh
+npm ci
+npm run dev
+```
+
+访问 [localhost:3000](http://localhost:3000)。无需配置 `.env`、账号、数据库或付费服务。默认仅监听本机。生产模式：
+
+```sh
+npm run build
+npm start
+```
+
+`npm start` 会加载可选的本地 `.env`，参数见 `.env.example`。只有需要明确开放外部访问时才配置 `HOST=0.0.0.0`；浏览器安全随机数要求 localhost 或 HTTPS。
+
+Docker 方式：
+
+```sh
+docker compose up --build -d --wait
+docker compose down
+```
+
+默认同样使用本机 3000 端口。若被开发服务占用，可在私有 `.env` 中设 `MYSTICATLAS_PORT=3001`。无需持久化服务端数据卷。参见 [部署与回滚方案](docs/DEPLOYMENT.md)。
+
+## AI 配置与隐私
+
+复制 `.env.example` 为 `.env`，主动启用 `AI_ENABLED=true`，填写 `AI_BASE_URL`（HTTPS、兼容 `/chat/completions` 的 `/v1` 基地址）、`AI_API_KEY`、`AI_MODEL` 后重启。密钥只在服务端使用。Codex / ChatGPT 订阅不等于公开网站 API 额度。
+
+只有用户点击“请求 AI 文化解读”才提交本次盘面和选填主题。应用不记录主题正文。可配置并发、超时、每小时次数、输出 token 与进程生命周期请求预算；进程重启会重置计数，必须另设模型服务商消费上限。共享 Demo 建议保持 AI 关闭，直到服务商隐私、预算和持久限额策略完成审核。本次使用模拟服务测试 AI 适配层，未连接真实模型服务。
+
+历史默认不保存、不上传；主动保存仅写入当前浏览器。导出可能包含用户另行勾选保存的主题，分享文本始终不含主题。清理浏览器或更换设备后本地数据不保留。
+
+## 测试
+
+```sh
+npm run format:check
+npm run check
+npx playwright install chromium
+npm run test:e2e
+npm audit --audit-level=high
+npm run test:distribution
+```
+
+穷举 **4096** 种输入，采用独立来源的完整映射和显式真值表作为期望；八种投币组合验证 1/3/3/1 的精确权重。10 万次随机模拟仅出诊断报告，不设不稳定统计 CI 门槛。浏览器测试使用真实 Chromium 与手机视口模拟，不冒充实体手机或 Safari 实测。实际命令、数量、未执行项见 [验收报告](docs/RELEASE_REPORT.md)。
+
+## 来源与开源许可
+
+自研代码与视觉采用 MIT。古代《周易》经文属于公有领域；数据整理及英文标签来自固定提交的 MIT 数据，另以独立 CC0 语料核对全部 64 组上下卦。两者均为数字整理本，不是权威校勘定本。18 条爻辞存在文字差异，已保留对照并标记待核验；卦辞尚未完成全面校勘。来源、版本、许可、校验值、已知差异见 [SOURCES](docs/SOURCES.md) 与 [第三方声明](THIRD_PARTY_NOTICES.md)。未复制现代译注、图库素材或远程字体。
+
+## 发布状态与贡献
+
+目标仓库：[xichugeek/MysticAtlas](https://github.com/xichugeek/MysticAtlas)。本轮仅做本地开发与提交，没有公开推送。拟定 Demo `mysticatlas.demo.xichugeek.com` **尚未上线**。Forge 接口、DNS/TLS、生产配置及休眠唤醒能力须另行授权并实测。提供了 GitHub Actions，但未宣称远程 CI 已运行。
+
+贡献请见 [CONTRIBUTING](CONTRIBUTING.md)。V2 奇门另行核验历法与流派规则；V3 仅限文化和几何比例，不推断身份、性格、智力、健康、财富、婚姻或命运。
