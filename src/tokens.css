@@ -1,0 +1,12 @@
+:root {
+  --bg: #101410;
+  --panel: #1a2017;
+  --text: #e3e5d8;
+  --muted: #99a38e;
+  --gold: #c7a66c;
+  --border: #2b3326;
+  --sans: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --serif: 'Songti SC', 'SimSun', 'Noto Serif CJK SC', Georgia, serif;
+  --mono: 'Cascadia Code', Consolas, monospace;
+  color-scheme: dark;
+}

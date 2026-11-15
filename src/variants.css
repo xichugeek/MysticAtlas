@@ -1,0 +1,67 @@
+.textual-variants {
+  border: 1px solid #605637;
+  background: #25271b;
+  padding: 15px 18px;
+  border-radius: 3px;
+  margin: 23px 0;
+  font-size: 12px;
+  color: #b7beaa;
+}
+.textual-variants summary {
+  cursor: pointer;
+  color: var(--gold);
+}
+.textual-variants > p {
+  margin: 14px 0;
+  line-height: 1.9;
+}
+.textual-variants > div {
+  padding: 15px 0;
+  border-top: 1px solid var(--border);
+}
+.textual-variants > div p {
+  margin: 8px 0 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.textual-variants > div .mono {
+  font-size: 10px;
+  color: var(--gold);
+}
+@media (max-width: 580px) {
+  .textual-variants {
+    padding: 15px;
+    font-size: 10px;
+  }
+  .textual-variants > div p {
+    font-size: 14px;
+  }
+  .detail-intro .diagram-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 8px 20px;
+    text-align: left;
+  }
+  .detail-intro .diagram-card .card-top {
+    grid-column: 1/-1;
+    margin-bottom: 8px;
+  }
+  .detail-intro .diagram-card .hex-lines {
+    grid-column: 1;
+    grid-row: 2/5;
+    margin: 12px auto;
+    width: 95px;
+  }
+  .detail-intro .diagram-card .diagram-name {
+    grid-column: 2;
+  }
+  .detail-intro .diagram-card .trigram-pair {
+    align-items: flex-start;
+    margin: 6px 0;
+  }
+  .detail-intro .diagram-card > .text-link {
+    grid-column: 2;
+  }
+}
