@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "lowerName": "乾",
+    "upperName": "乾",
+    "lower": "111",
+    "upper": "111"
+  },
+  {
+    "id": 2,
+    "lowerName": "坤",
+    "upperName": "坤",
+    "lower": "000",
+    "upper": "000"
+  },
+  {
+    "id": 3,
+    "lowerName": "震",
+    "upperName": "坎",
+    "lower": "100",
+    "upper": "010"
+  },
+  {
+    "id": 4,
+    "lowerName": "坎",
+    "upperName": "艮",
+    "lower": "010",
+    "upper": "001"
+  },
+  {
+    "id": 5,
+    "lowerName": "乾",
+    "upperName": "坎",
+    "lower": "111",
+    "upper": "010"
+  },
+  {
+    "id": 6,
+    "lowerName": "坎",
+    "upperName": "乾",
+    "lower": "010",
+    "upper": "111"
+  },
+  {
+    "id": 7,
+    "lowerName": "坎",
+    "upperName": "坤",
+    "lower": "010",
+    "upper": "000"
+  },
+  {
+    "id": 8,
+    "lowerName": "坤",
+    "upperName": "坎",
+    "lower": "000",
+    "upper": "010"
+  },
+  {
+    "id": 9,
+    "lowerName": "乾",
+    "upperName": "巽",
+    "lower": "111",
+    "upper": "011"
+  },
+  {
+    "id": 10,
+    "lowerName": "兑",
+    "upperName": "乾",
+    "lower": "110",
+    "upper": "111"
+  },
+  {
+    "id": 11,
+    "lowerName": "乾",
+    "upperName": "坤",
+    "lower": "111",
+    "upper": "000"
+  },
+  {
+    "id": 12,
+    "lowerName": "坤",
+    "upperName": "乾",
+    "lower": "000",
+    "upper": "111"
+  },
+  {
+    "id": 13,
+    "lowerName": "离",
+    "upperName": "乾",
+    "lower": "101",
+    "upper": "111"
+  },
+  {
+    "id": 14,
+    "lowerName": "乾",
+    "upperName": "离",
+    "lower": "111",
+    "upper": "101"
+  },
+  {
+    "id": 15,
+    "lowerName": "艮",
+    "upperName": "坤",
+    "lower": "001",
+    "upper": "000"
+  },
+  {
+    "id": 16,
+    "lowerName": "坤",
+    "upperName": "震",
+    "lower": "000",
+    "upper": "100"
+  },
+  {
+    "id": 17,
+    "lowerName": "震",
+    "upperName": "兑",
+    "lower": "100",
+    "upper": "110"
+  },
+  {
+    "id": 18,
+    "lowerName": "巽",
+    "upperName": "艮",
+    "lower": "011",
+    "upper": "001"
+  },
+  {
+    "id": 19,
+    "lowerName": "兑",
+    "upperName": "坤",
+    "lower": "110",
+    "upper": "000"
+  },
+  {
+    "id": 20,
+    "lowerName": "坤",
+    "upperName": "巽",
+    "lower": "000",
+    "upper": "011"
+  },
+  {
+    "id": 21,
+    "lowerName": "震",
+    "upperName": "离",
+    "lower": "100",
+    "upper": "101"
+  },
+  {
+    "id": 22,
+    "lowerName": "离",
+    "upperName": "艮",
+    "lower": "101",
+    "upper": "001"
+  },
+  {
+    "id": 23,
+    "lowerName": "坤",
+    "upperName": "艮",
+    "lower": "000",
+    "upper": "001"
+  },
+  {
+    "id": 24,
+    "lowerName": "震",
+    "upperName": "坤",
+    "lower": "100",
+    "upper": "000"
+  },
+  {
+    "id": 25,
+    "lowerName": "震",
+    "upperName": "乾",
+    "lower": "100",
+    "upper": "111"
+  },
+  {
+    "id": 26,
+    "lowerName": "乾",
+    "upperName": "艮",
+    "lower": "111",
+    "upper": "001"
+  },
+  {
+    "id": 27,
+    "lowerName": "震",
+    "upperName": "艮",
+    "lower": "100",
+    "upper": "001"
+  },
+  {
+    "id": 28,
+    "lowerName": "巽",
+    "upperName": "兑",
+    "lower": "011",
+    "upper": "110"
+  },
+  {
+    "id": 29,
+    "lowerName": "坎",
+    "upperName": "坎",
+    "lower": "010",
+    "upper": "010"
+  },
+  {
+    "id": 30,
+    "lowerName": "离",
+    "upperName": "离",
+    "lower": "101",
+    "upper": "101"
+  },
+  {
+    "id": 31,
+    "lowerName": "艮",
+    "upperName": "兑",
+    "lower": "001",
+    "upper": "110"
+  },
+  {
+    "id": 32,
+    "lowerName": "巽",
+    "upperName": "震",
+    "lower": "011",
+    "upper": "100"
+  },
+  {
+    "id": 33,
+    "lowerName": "艮",
+    "upperName": "乾",
+    "lower": "001",
+    "upper": "111"
+  },
+  {
+    "id": 34,
+    "lowerName": "乾",
+    "upperName": "震",
+    "lower": "111",
+    "upper": "100"
+  },
+  {
+    "id": 35,
+    "lowerName": "坤",
+    "upperName": "离",
+    "lower": "000",
+    "upper": "101"
+  },
+  {
+    "id": 36,
+    "lowerName": "离",
+    "upperName": "坤",
+    "lower": "101",
+    "upper": "000"
+  },
+  {
+    "id": 37,
+    "lowerName": "离",
+    "upperName": "巽",
+    "lower": "101",
+    "upper": "011"
+  },
+  {
+    "id": 38,
+    "lowerName": "兑",
+    "upperName": "离",
+    "lower": "110",
+    "upper": "101"
+  },
+  {
+    "id": 39,
+    "lowerName": "艮",
+    "upperName": "坎",
+    "lower": "001",
+    "upper": "010"
+  },
+  {
+    "id": 40,
+    "lowerName": "坎",
+    "upperName": "震",
+    "lower": "010",
+    "upper": "100"
+  },
+  {
+    "id": 41,
+    "lowerName": "兑",
+    "upperName": "艮",
+    "lower": "110",
+    "upper": "001"
+  },
+  {
+    "id": 42,
+    "lowerName": "震",
+    "upperName": "巽",
+    "lower": "100",
+    "upper": "011"
+  },
+  {
+    "id": 43,
+    "lowerName": "乾",
+    "upperName": "兑",
+    "lower": "111",
+    "upper": "110"
+  },
+  {
+    "id": 44,
+    "lowerName": "巽",
+    "upperName": "乾",
+    "lower": "011",
+    "upper": "111"
+  },
+  {
+    "id": 45,
+    "lowerName": "坤",
+    "upperName": "兑",
+    "lower": "000",
+    "upper": "110"
+  },
+  {
+    "id": 46,
+    "lowerName": "巽",
+    "upperName": "坤",
+    "lower": "011",
+    "upper": "000"
+  },
+  {
+    "id": 47,
+    "lowerName": "坎",
+    "upperName": "兑",
+    "lower": "010",
+    "upper": "110"
+  },
+  {
+    "id": 48,
+    "lowerName": "巽",
+    "upperName": "坎",
+    "lower": "011",
+    "upper": "010"
+  },
+  {
+    "id": 49,
+    "lowerName": "离",
+    "upperName": "兑",
+    "lower": "101",
+    "upper": "110"
+  },
+  {
+    "id": 50,
+    "lowerName": "巽",
+    "upperName": "离",
+    "lower": "011",
+    "upper": "101"
+  },
+  {
+    "id": 51,
+    "lowerName": "震",
+    "upperName": "震",
+    "lower": "100",
+    "upper": "100"
+  },
+  {
+    "id": 52,
+    "lowerName": "艮",
+    "upperName": "艮",
+    "lower": "001",
+    "upper": "001"
+  },
+  {
+    "id": 53,
+    "lowerName": "艮",
+    "upperName": "巽",
+    "lower": "001",
+    "upper": "011"
+  },
+  {
+    "id": 54,
+    "lowerName": "兑",
+    "upperName": "震",
+    "lower": "110",
+    "upper": "100"
+  },
+  {
+    "id": 55,
+    "lowerName": "离",
+    "upperName": "震",
+    "lower": "101",
+    "upper": "100"
+  },
+  {
+    "id": 56,
+    "lowerName": "艮",
+    "upperName": "离",
+    "lower": "001",
+    "upper": "101"
+  },
+  {
+    "id": 57,
+    "lowerName": "巽",
+    "upperName": "巽",
+    "lower": "011",
+    "upper": "011"
+  },
+  {
+    "id": 58,
+    "lowerName": "兑",
+    "upperName": "兑",
+    "lower": "110",
+    "upper": "110"
+  },
+  {
+    "id": 59,
+    "lowerName": "坎",
+    "upperName": "巽",
+    "lower": "010",
+    "upper": "011"
+  },
+  {
+    "id": 60,
+    "lowerName": "兑",
+    "upperName": "坎",
+    "lower": "110",
+    "upper": "010"
+  },
+  {
+    "id": 61,
+    "lowerName": "兑",
+    "upperName": "巽",
+    "lower": "110",
+    "upper": "011"
+  },
+  {
+    "id": 62,
+    "lowerName": "艮",
+    "upperName": "震",
+    "lower": "001",
+    "upper": "100"
+  },
+  {
+    "id": 63,
+    "lowerName": "离",
+    "upperName": "坎",
+    "lower": "101",
+    "upper": "010"
+  },
+  {
+    "id": 64,
+    "lowerName": "坎",
+    "upperName": "离",
+    "lower": "010",
+    "upper": "101"
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "checkedAt": "2026-11-15",
+  "method": "Two independent digital transcriptions; punctuation and whitespace ignored. No automatic textual corrections. Not a critical edition.",
+  "compared": 384,
+  "equal": 366,
+  "differences": [
+    {
+      "id": 6,
+      "line": 4,
+      "primary": "九四：不克讼，复即命渝，安贞吉。",
+      "independent": "九四：不克讼，复既命渝。安贞吉。"
+    },
+    {
+      "id": 13,
+      "line": 5,
+      "primary": "九五：同人，先号啕而后笑，大师克相遇。",
+      "independent": "九五：同人先号咷而后笑，大师克，相遇。"
+    },
+    {
+      "id": 14,
+      "line": 6,
+      "primary": "上九：自天佑之，吉无不利。",
+      "independent": "上九：自天祐之，吉，无不利。"
+    },
+    {
+      "id": 15,
+      "line": 4,
+      "primary": "六四：无不利，撝谦。",
+      "independent": "六四：无不利，捴谦。"
+    },
+    {
+      "id": 25,
+      "line": 2,
+      "primary": "六二：不耕获，不菑畲，则利有攸往。",
+      "independent": "六二：不耕获，不菑畬，则利用攸往。"
+    },
+    {
+      "id": 29,
+      "line": 6,
+      "primary": "上六：系用徽纆，寘于丛棘，三岁不得，凶。",
+      "independent": "上六：系用徽纆，窴于丛棘，三岁不得，凶。"
+    },
+    {
+      "id": 33,
+      "line": 1,
+      "primary": "初六：遁尾，厉，勿用有攸往。",
+      "independent": "初六：遯尾，厉，勿用有攸往。"
+    },
+    {
+      "id": 33,
+      "line": 3,
+      "primary": "九三：系遁，有疾厉；畜臣妾吉。",
+      "independent": "九三：系遯，有疾厉，畜臣妾吉。"
+    },
+    {
+      "id": 33,
+      "line": 4,
+      "primary": "九四：好遁，君子吉，小人否。",
+      "independent": "九四：好遯，君子吉，小人否。"
+    },
+    {
+      "id": 33,
+      "line": 5,
+      "primary": "九五：嘉遁，贞吉。",
+      "independent": "九五：嘉遯，贞吉。"
+    },
+    {
+      "id": 33,
+      "line": 6,
+      "primary": "上九：肥遁，无不利。",
+      "independent": "上九：肥遯，无不利。"
+    },
+    {
+      "id": 37,
+      "line": 4,
+      "primary": "六四：富家，大吉。",
+      "independent": "九四：富家，大吉。"
+    },
+    {
+      "id": 38,
+      "line": 6,
+      "primary": "上九：睽孤，见豕负涂，载鬼一车，先张之弧，后说之弧；匪寇婚媾，往遇雨则吉。",
+      "independent": "上九：睽孤见豕负途，载鬼一车，先张之弧，后说之弧，匪寇，婚媾。往遇\n　　雨则吉。"
+    },
+    {
+      "id": 47,
+      "line": 6,
+      "primary": "上六：困于葛藟，于臲卼；曰动悔有悔，征吉。",
+      "independent": "上六：困于葛藟，于臲，曰动悔有悔，征吉。"
+    },
+    {
+      "id": 48,
+      "line": 5,
+      "primary": "九五：井冽寒泉，食。",
+      "independent": "九五：井洌，寒泉食。"
+    },
+    {
+      "id": 49,
+      "line": 2,
+      "primary": "六二：己日乃革之，征吉，无咎。",
+      "independent": "六二：巳日乃革之，征吉，无咎。"
+    },
+    {
+      "id": 51,
+      "line": 5,
+      "primary": "六五：震往来厉，亿无丧有事。",
+      "independent": "六五：震往来，厉，意无丧，有事。"
+    },
+    {
+      "id": 56,
+      "line": 6,
+      "primary": "上九：鸟焚其巢，旅人先笑后号啕，丧牛于易，凶。",
+      "independent": "上九：鸟焚其巢，旅人先笑后号咷。丧牛于易，凶。"
+    }
+  ],
+  "unparsed": []
+}

@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-11-15",
+  "primaryCommit": "6a32e5faa737b0d6facfcd571856fd8ae18d4439",
+  "independentCommit": "09a6873e46760f20027e20bf48814f5c5cc05d66",
+  "files": {
+    "corpus-LICENSE.txt": "59c42bec0b1c8f5056a09b437242b5345f08952e9c471484249a7d8dd5ca639b",
+    "iching-kit-classic.ts.txt": "de179649b1318be66568e8a79b5eeded0712fd499a35f3dcbb5f8cdf9875c2ca",
+    "iching-kit-LICENSE.txt": "f9c8f801f5d38a5075c3872af57fb85cd902a83250b2da3bc48f89e6c620e2aa",
+    "zhouyi-independent.json": "ed09bf852780d57800ec2ef541bc5ff60e40b0032f51dc35eee66efbe8bd83c7"
+  },
+  "independentPairCount": 64
+}

@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+output
+artifacts
+Agent
+package-lock.json
+knowledge/sources

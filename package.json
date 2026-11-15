@@ -1,0 +1,44 @@
+{
+  "name": "mysticatlas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsx watch server/index.ts",
+    "build": "vite build && esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server/index.js",
+    "start": "node --env-file-if-exists=.env dist/server/index.js",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:distribution": "tsx scripts/distribution.ts",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
+    "check": "npm run typecheck && npm test && npm run build && npm run scan:secrets"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "helmet": "8.3.0",
+    "lucide-react": "1.73.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/express": "5.0.6",
+    "@types/node": "22.19.15",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.3.0",
+    "esbuild": "0.28.1",
+    "prettier": "3.8.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.8",
+    "vitest": "5.1.0"
+  }
+}
