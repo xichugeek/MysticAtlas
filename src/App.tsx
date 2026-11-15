@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowRight,
@@ -29,6 +29,7 @@ import { exportHistory, HISTORY_KEY, loadHistory, saveHistory, type HistoryEntry
 import { FORECAST_VERSION } from '../engines/forecast';
 
 const repo = 'https://github.com/xichugeek/MysticAtlas';
+const Face = lazy(() => import('./Face'));
 function initialLang(): Lang {
   try {
     return localStorage.getItem('mysticatlas.lang') === 'en' ? 'en' : 'zh';
@@ -124,16 +125,20 @@ export function App() {
             </span>
           </a>
           <nav aria-label={lang === 'zh' ? '主导航' : 'Main navigation'}>
-            {(['home', 'cast', 'library', 'principles', 'about'] as const).map((page) => (
-              <a
-                href={`#${page}`}
-                key={page}
-                className={active === page ? 'active' : ''}
-                aria-current={active === page ? 'page' : undefined}
-              >
-                {t[page]}
-              </a>
-            ))}
+            {(['home', 'cast', 'faceNav', 'library', 'principles', 'about'] as const).map(
+              (page) => (
+                <a
+                  href={`#${page === 'faceNav' ? 'face' : page}`}
+                  key={page}
+                  className={active === (page === 'faceNav' ? 'face' : page) ? 'active' : ''}
+                  aria-current={
+                    active === (page === 'faceNav' ? 'face' : page) ? 'page' : undefined
+                  }
+                >
+                  {t[page]}
+                </a>
+              ),
+            )}
           </nav>
           <div className="header-actions">
             <a
@@ -282,6 +287,16 @@ export function App() {
               location.hash = 'cast';
             }}
           />
+        ) : route === 'face' ? (
+          <Suspense
+            fallback={
+              <div className="page empty-state" role="status">
+                {lang === 'zh' ? '正在打开面相图谱…' : 'Opening face atlas…'}
+              </div>
+            }
+          >
+            <Face lang={lang} />
+          </Suspense>
         ) : route === 'library' ? (
           <Library lang={lang} />
         ) : detailId >= 1 && detailId <= 64 && Number.isInteger(detailId) ? (
@@ -366,13 +381,15 @@ function Roadmap({ lang }: { lang: Lang }) {
             <article key={name}>
               <div>
                 <span className="mono">0{i + 1}</span>
-                <span className={`pill ${i ? '' : 'available'}`}>{i ? t.planned : t.current}</span>
+                <span className={`pill ${i === 1 ? '' : 'available'}`}>
+                  {i === 1 ? t.planned : t.current}
+                </span>
               </div>
               <h3>{name}</h3>
               <p>{i === 0 ? t.ritualSub : i === 1 ? t.qimenNote : t.faceNote}</p>
-              {i === 0 && (
-                <a className="text-link" href="#cast">
-                  {t.start}
+              {i !== 1 && (
+                <a className="text-link" href={i === 0 ? '#cast' : '#face'}>
+                  {i === 0 ? t.start : t.faceNav}
                   <ArrowRight size={15} />
                 </a>
               )}

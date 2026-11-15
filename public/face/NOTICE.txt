@@ -1,0 +1,16 @@
+MysticAtlas face atlas third-party assets
+
+MediaPipe Tasks Vision 0.10.21 and Face Landmarker float16/1:
+Google / MediaPipe authors. Apache License 2.0.
+Unmodified model and WASM. Worker glue and geometry UI are MysticAtlas code.
+Full upstream license and additional notices: APACHE-2.0.txt.
+Official model card:
+https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf
+
+example.png: NASA public-domain photograph, supplied by scikit-image.
+Source commit: e8a42ba85aaf5fd9322ef9ca51bc21063b22fcae (v0.25.2).
+Rights reference:
+https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut
+Demonstration only; no endorsement by NASA or the person pictured is implied.
+
+Exact artifact URLs and SHA-256 values: assets.json.

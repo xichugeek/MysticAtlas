@@ -1,6 +1,7 @@
 export type Lang = 'zh' | 'en';
 export const copy = {
   zh: {
+    faceNav: '面相图谱',
     home: '首页',
     cast: '铜钱起卦',
     library: '六十四卦',
@@ -168,6 +169,7 @@ export const copy = {
     privacy: '隐私与边界',
   },
   en: {
+    faceNav: 'Face atlas',
     home: 'Home',
     cast: 'Cast coins',
     library: '64 hexagrams',

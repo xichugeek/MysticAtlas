@@ -2,6 +2,8 @@
 
 Baseline: `Agent/MysticAtlas_01_项目开发任务书.md`, reviewed 2026-11-15 (Asia/Shanghai).
 
+Current scope amendments: the owner subsequently authorized GitHub publication, requested direct predictive results, and explicitly requested the face module. The historical baseline below is superseded for those points by the extension sections at the end. Application 1.3.0 implements local face landmarks/geometry; Qimen remains planned. Production/DNS/Forge authorization is still outside scope.
+
 ## Workspace and scope
 
 The workspace initially contains only the supplied Agent documents, with no Git metadata or application. Preserve them. Work locally in this directory; do not publish, push, configure credentials, or modify production infrastructure. The provided remote is `https://github.com/xichugeek/MysticAtlas.git`. Proxy/network settings must remain unchanged.
@@ -34,3 +36,7 @@ The owner explicitly requested predictive inference after V1 delivery. Add a vis
 ## Result visibility and direct answer correction
 
 Owner feedback: completed six casts still showed a “查看卦象” gate and general scenarios did not answer the question. Automatically open results at six values (including an already-completed cast after hot reload), place an explicit question-aware symbolic verdict above diagrams, and move AI request/status beside that verdict. Add an original 64-entry disposition table, transparent combination rules and lightweight local question-form matching; do not claim factual verification or deep local semantic understanding. Preserve local-only theme handling and opt-in provider calls. Allow editing the last line after completion. Regression must cover the screenshot's exact numeric cast, automatic transition, clear yes/no-style outcome, no-theme fallback, negative/ambiguous questions, privacy and both languages. AI success remains mock-only until configured.
+
+## Owner-requested face module
+
+The owner now explicitly requested the previously planned face module. Implement a real local-only face-landmark/geometry experience: uploaded image, explicit public-domain example, actual MediaPipe inference, overlay, numeric 2D ratios, optional manually calibrated vertical reference lines, clear/export, sources and Chinese/English flow. Package model/WASM/worker on the same origin, no runtime CDN or photo POST. Do not generate identity embeddings or infer identity, personality, intelligence, health, wealth, marriage or fate. Show drawing/cultural terminology as sourced educational material, not personal findings. No AI-provider face input. Reject unsupported/oversized files, no face/multiple faces, invalid geometry; cancel/release work on reset/unmount. Test a real detector on the public example, invalid/empty/multiple-face handling, privacy/network isolation, responsive UI, formulas and asset hashes. Update the earlier roadmap truthfully; Qimen remains planned. Continue using the existing authorized GitHub destination after checks; production/Forge/DNS remain outside scope.

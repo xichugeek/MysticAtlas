@@ -35,6 +35,15 @@ V1.2 adds `engines/forecast/judgments.ts` and `answer.ts`: an original 64-entry 
 
 ## References inspected, not redistributed
 
+### Face atlas assets and educational references (1.3.0)
+
+- MediaPipe official [web guide](https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker/web_js) and [model card](https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf). The Apache-2.0 model is fixed at `face_landmarker/float16/1`, not a mutable `latest` URL. JavaScript/WASM use locked `@mediapipe/tasks-vision@0.10.21`. Only geometric landmarks are used; optional blendshapes and transformation matrices are disabled. This is an actual detector, not an LLM or an identity recognizer.
+- [Asset manifest](../public/face/assets.json) records exact model/example/license download URLs, sizes and SHA-256. Tests verify all three checked-in files. The model is 3,758,596 bytes; its SHA-256 is `64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff`.
+- [scikit-image official astronaut reference](https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut): public-domain NASA example. Exact bytes are pinned to commit `e8a42ba85aaf5fd9322ef9ca51bc21063b22fcae`; photo downloaded from the upstream repository, not user data. Rights and attribution are retained in THIRD_PARTY_NOTICES and the UI.
+- [清华大学出版社《设计素描》样章](https://www.tup.tsinghua.edu.cn/upload/books/yz/043619-01.pdf): contemporary portrait-drawing explanation of 三庭五眼. Linked, not redistributed. Our short notes are original paraphrases, not claims to reproduce an ancient physiognomy method. No personality, intelligence, health, wealth, marriage or fate inference is implemented.
+
+The app never labels landmark 10 as a detected hairline. Automatic segments are explicitly forehead/brow/nose-base/chin references; true hairline-based annotations require four user-entered lines. Distances use image pixels, not raw normalized x/y values. Photos and individual landmark positions are excluded from exports and persistent storage.
+
 - [Unicode Yijing Hexagram Symbols](https://www.unicode.org/charts/PDF/U4DC0.pdf): symbol range U+4DC0–U+4DFF and King Wen labels inspected. No chart PDF or font copied into the product. Algorithm mapping is independently checked using explicit corpus trigram labels, not font appearance.
 - Wikisource and ctext.org direct retrieval returned access errors/403 in this session. Do not claim direct verification of those sites. Their text was not scraped during this task.
 - [Vite official guide](https://vite.dev/guide/): Node prerequisite checked; actual package versions resolved with npm and pinned. Installed versions are the authoritative engineering evidence.

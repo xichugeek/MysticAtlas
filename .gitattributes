@@ -1,4 +1,6 @@
 * text=auto eol=lf
 knowledge/sources/* -text
 *.png -text
+*.task -text
+*.wasm -text
 *.zip -text

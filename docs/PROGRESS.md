@@ -1,5 +1,13 @@
 # Progress / development evidence
 
+## 2026-11-15 — Owner-requested face atlas (1.3.0)
+
+- Owner corrected the planned-only face module. Added an active main-navigation/home entry and real local MediaPipe detection: 478 landmarks, six measured values, overlay controls, vertical segments, manually entered reference lines, geometry export and clear; Chinese/English and mobile layout are implemented. Culture/drawing notes are sourced separately and do not become personal-trait or fate predictions.
+- Pinned `@mediapipe/tasks-vision@0.10.21`, official model float16/1 and public-domain NASA example. Model/example/license hashes are tested. Dev/build prepare a same-origin classic worker and WASM from locked dependencies; Docker excludes host-generated assets and regenerates them cleanly. No photo API, provider call, identity embeddings or persistent photo/landmark storage.
+- `npm run check`: typecheck, **85/85 unit/API tests**, production build and secret scan PASS. Dependency audit: **0 vulnerabilities**. Formatting and whitespace checks pass. The initial new browser tests had two test-assertion mistakes (unsupported matcher and wrong existing badge text); corrected without weakening the actual detector or geometry checks.
+- Full production Node browser regression: **32/32 PASS**. Actual Linux build passes all 85 tests; isolated `mysticatlas-face-qa` on 3003 passes **6/6 real-detector desktop/mobile tests**, with seven HTTP/concurrency smoke checks. Network/storage checks confirm GET-only same-origin model/WASM requests, no automatic photo storage, and no page errors. Blank and two-face images exercise the real detector; model failure is injected only to test retry.
+- Inspected genuine desktop/mobile captures, refreshed existing navigation screenshots and added `face-zh/en-desktop/mobile.png`. Full details, methods, limits and reproduction are in FACE_RELEASE_REPORT. Existing user preview on 3000 now reports 1.3.0; opened `http://localhost:3000/#face` for review. Source updates use the earlier authorized GitHub main; no production/DNS/Forge or proxy changes.
+
 ## 2026-11-15 — Authorized GitHub publication
 
 - Owner explicitly requested “把代码更新到github上面去”. Working tree was clean on `main`; origin matched `https://github.com/xichugeek/MysticAtlas.git`; the remote advertised no branches/tags before the first push.

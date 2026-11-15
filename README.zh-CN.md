@@ -29,7 +29,13 @@
 
 新增服务端契约：`POST /api/forecast`，输入 `{ "values": [9,7,7,7,7,7], "lang": "zh" }`，无需 AI；不接受主题文本。详见 [推演预测验收报告](docs/FORECAST_RELEASE_REPORT.md)。
 
-经典原文保留中文；英文短标题为阅读标签，不冒充经典译文。奇门与面相仅显示“规划中”，没有开展第二、三期开发。
+经典原文保留中文；英文短标题为阅读标签，不冒充经典译文。奇门仍为规划中。
+
+## 面相图谱（1.3.0）
+
+点击主导航的 **面相图谱**，或打开 `/#face`。选择 PNG/JPEG/WebP 单人照片（最大 8 MiB），也可先用注明来源的 NASA 公有领域示例。真实 MediaPipe 模型在浏览器 Worker 内运行，显示 **478 个关键点**、六项实测比例/角度与纵向参考分段。可切换叠加图、手动标记发际线等参考线、导出仅含几何结果的 JSON、清除照片与结果。自动额部点不冒充发际线。
+
+照片与关键点只保留在浏览器内存，不上传服务器、不提交 AI、不写入浏览器持久存储。模型、WASM 与 Worker 均为同源资源，运行时不依赖外部 CDN。结果是二维图像几何，不作颜值评分，也不据外貌推断性格、健康、财富或命运；文化资料独立展示。详见 [面相模块验收](docs/FACE_RELEASE_REPORT.md) 和 [资源来源与校验值](public/face/assets.json)。`predev`、`prebuild` 会从锁定的 npm 包自动准备 Worker/WASM。
 
 ## 快速启动
 
@@ -87,4 +93,4 @@ npm run test:distribution
 
 源代码已于 2026-11-15 经用户授权推送到 [xichugeek/MysticAtlas](https://github.com/xichugeek/MysticAtlas) 的 `main` 分支。每次推送会触发 GitHub Actions，实际结果见 [Actions 页面](https://github.com/xichugeek/MysticAtlas/actions)。拟定 Demo `mysticatlas.demo.xichugeek.com` **尚未上线**。Forge 接口、DNS/TLS、生产配置及休眠唤醒能力仍须另行授权并实测。
 
-贡献请见 [CONTRIBUTING](CONTRIBUTING.md)。V2 奇门另行核验历法与流派规则；V3 仅限文化和几何比例，不推断身份、性格、智力、健康、财富、婚姻或命运。
+贡献请见 [CONTRIBUTING](CONTRIBUTING.md)。奇门另行核验历法与流派规则；已实现的面相图谱仅限文化和几何比例，不推断身份、性格、智力、健康、财富、婚姻或命运。

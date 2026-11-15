@@ -24,7 +24,15 @@ At six values, the app automatically opens results, including a completed cast r
 
 `src/Forecast.tsx` runs the engine locally on the result page without a POST or theme semantic analysis. It shows three conditional scenarios, signals, revision conditions, suggestions and source-linked quotations. Optional AI receives the same local report alongside the chart and explicitly submitted theme, then returns a separately displayed structured `forecast`. Exactly three distinct scenario kinds are required. Every action has an observation and a reconsideration condition. Unsupported percentages/dates, missing fields, duplicate kinds, unsafe prose and chart/citation mismatches fail validation; the local forecast survives provider failure. Themes and generated AI text remain outside saved history unless the existing explicit theme-save checkbox is used for the theme itself.
 
-## HTTP endpoints
+## Face atlas (1.3.0)
+
+`src/Face.tsx` is a lazy `#face` route. File MIME and magic bytes must match PNG/JPEG/WebP; limits are 8 MiB and 32 megapixels, with decoded images reduced locally to a maximum edge of 1440. Photos remain `ImageBitmap` objects in memory. A dedicated classic worker runs the pinned MediaPipe 0.10.21 CPU/IMAGE detector with `numFaces: 2`, no blendshapes and no transformation matrices. Zero or multiple detections are rejected. Only the single set of 478 positions returns to the UI; there are no identity embeddings or personal-trait predictions. The worker is terminated on completion, error, timeout, reset or route unmount; obsolete async results are ignored and decoded bitmaps closed. The public example uses the same real detector.
+
+`engines/face/index.ts` computes pixel-space Euclidean ratios, eye-line tilt and projected vertical segments. Automatic forehead point 10 is explicitly not a hairline. Manual hairline/reference inputs start empty and must be entered in increasing order; no model output is relabeled as a manual annotation. JSON export omits the image, filename and raw coordinates. No photo/landmark persistence, remote model URL or AI-provider input is implemented. Cultural notes are original educational paraphrases, separate from measured results.
+
+`prepare:face` bundles an IIFE classic worker and copies WASM from the locked package into ignored `public/vision/` before dev/build. The checked-in model, example and upstream license have SHA-256/size checks in `public/face/assets.json`. Production serves these resources under the existing same-origin policy; CSP adds only `wasm-unsafe-eval` for WebAssembly compilation and `worker-src 'self'`. It does not enable general JavaScript eval or inline scripts.
+
+## HTTP contracts
 
 All API responses use `Cache-Control: no-store`. No CORS allow header. Cross-origin browser POSTs are rejected. Upstream identity is never accepted from `X-Forwarded-For` unless the operator explicitly enables the documented single-proxy topology.
 

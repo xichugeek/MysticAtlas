@@ -36,7 +36,8 @@ export function createApp(
         ? {
             directives: {
               defaultSrc: ["'self'"],
-              scriptSrc: ["'self'"],
+              scriptSrc: ["'self'", "'wasm-unsafe-eval'"],
+              workerSrc: ["'self'"],
               styleSrc: ["'self'"],
               imgSrc: ["'self'", 'data:'],
               fontSrc: ["'self'"],
@@ -95,7 +96,7 @@ export function createApp(
   app.get('/api/health', (_req, res) =>
     res.json({
       status: 'ok',
-      version: '1.2.0',
+      version: '1.3.0',
       algorithmVersion: ALGORITHM_VERSION,
       dataVersion: DATA_VERSION,
       forecastVersion: FORECAST_VERSION,

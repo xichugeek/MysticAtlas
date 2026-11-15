@@ -1,0 +1,335 @@
+.face-page {
+  padding-top: 56px;
+  padding-bottom: 80px;
+}
+.face-heading {
+  max-width: 850px;
+  margin-bottom: 34px;
+}
+.face-heading h1 {
+  margin: 14px 0;
+}
+.face-heading .face-lead {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.face-local {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #a9c6b5;
+  font-size: 13px;
+}
+.face-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.face-workbench,
+.face-results {
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 25px;
+  border-radius: 4px;
+}
+.face-toolbar,
+.face-actions,
+.face-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.face-toolbar {
+  margin-bottom: 12px;
+}
+.face-file {
+  position: relative;
+  cursor: pointer;
+}
+.face-file input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.face-file:focus-within {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.face-stage {
+  position: relative;
+  min-height: 250px;
+  background: #0c100e;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.face-stage canvas {
+  display: block;
+  width: 100%;
+  max-height: 650px;
+  object-fit: contain;
+}
+.face-placeholder {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--gold);
+}
+.face-placeholder svg {
+  opacity: 0.65;
+  max-width: 45%;
+  height: 210px;
+  margin-bottom: 20px;
+}
+.face-placeholder h2 {
+  font-size: 20px;
+}
+.face-placeholder p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 0;
+}
+.face-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px;
+  background: #0c100ee8;
+  text-align: center;
+  color: var(--gold);
+}
+.face-attribution {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 12px 0;
+}
+.face-controls {
+  margin-top: 20px;
+  font-size: 13px;
+}
+.face-controls label,
+.face-calibration > label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.face-page input[type='checkbox'] {
+  accent-color: var(--gold);
+  width: 17px;
+  height: 17px;
+}
+.face-actions {
+  margin-top: 22px;
+  justify-content: space-between;
+}
+.face-actions .text-link {
+  font-size: 13px;
+}
+.face-results h2 {
+  font-size: 26px;
+  margin: 10px 0;
+}
+.face-status {
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+}
+.face-metrics {
+  margin: 0 0 25px;
+}
+.face-metrics > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+.face-metrics dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+.face-metrics dd {
+  margin: 0;
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: 23px;
+  white-space: nowrap;
+}
+.face-metrics small {
+  font-size: 11px;
+  margin-left: 5px;
+}
+.face-results h3 {
+  font-size: 16px;
+}
+.face-segments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.face-segments > div {
+  display: grid;
+  gap: 5px;
+  font-size: 12px;
+}
+.face-segments strong {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--gold);
+}
+.face-segments meter {
+  width: 100%;
+  height: 6px;
+  accent-color: var(--gold);
+}
+.face-warning {
+  font-size: 13px;
+  color: #dfb977;
+  border-left: 2px solid var(--gold);
+  padding-left: 12px;
+}
+.face-calibration {
+  border-block: 1px solid var(--border);
+  padding: 16px 0;
+  margin: 20px 0;
+  font-size: 13px;
+}
+.face-page summary {
+  cursor: pointer;
+  color: var(--gold);
+}
+.face-calibration p {
+  margin-top: 15px;
+}
+.face-ref-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.face-ref-inputs label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.face-ref-inputs input {
+  width: 100%;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 3px;
+}
+.face-export {
+  width: 100%;
+}
+.face-limitation {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 22px 0 12px;
+}
+.face-result-empty {
+  text-align: center;
+  padding: 65px 15px;
+  color: var(--muted);
+}
+.face-result-empty p {
+  margin: 15px 0 0;
+  font-size: 13px;
+}
+.face-culture {
+  padding-top: 65px;
+}
+.face-culture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.face-culture-grid article {
+  border-top: 1px solid var(--gold);
+  padding-top: 20px;
+}
+.face-culture-grid .mono {
+  color: var(--gold);
+}
+.face-culture-grid h3 {
+  font-size: 18px;
+  margin: 15px 0;
+}
+.face-culture-grid p,
+.face-sources {
+  color: var(--muted);
+  font-size: 13px;
+}
+.face-sources {
+  border-top: 1px solid var(--border);
+  margin-top: 35px;
+  padding-top: 22px;
+  overflow-wrap: anywhere;
+}
+.face-sources p {
+  margin-top: 18px;
+}
+.face-sources a {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 1000px) {
+  .face-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .face-stage canvas {
+    max-height: 560px;
+  }
+}
+@media (max-width: 600px) {
+  .face-page {
+    padding-top: 30px;
+  }
+  .face-heading .face-lead {
+    font-size: 20px;
+  }
+  .face-heading h1 {
+    font-size: 30px;
+  }
+  .face-workbench,
+  .face-results {
+    padding: 18px;
+  }
+  .face-toolbar .button {
+    width: 100%;
+  }
+  .face-placeholder {
+    min-height: 340px;
+    padding: 20px 10px;
+  }
+  .face-placeholder h2 {
+    font-size: 17px;
+  }
+  .face-culture-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .face-metrics dd {
+    font-size: 21px;
+  }
+  .face-local {
+    align-items: flex-start;
+  }
+}

@@ -29,7 +29,13 @@ Local mode matches simple question forms (yes/no, timing, choice or method) with
 
 New API: `POST /api/forecast` with `{ "values": [9,7,7,7,7,7], "lang": "en" }`. No AI needed; theme text is not accepted. See the [forecast release report](docs/FORECAST_RELEASE_REPORT.md).
 
-English navigation and explanations are provided. Classical texts remain in Chinese; short English labels are not a translation. Future Qimen and face-geometry modules are marked Planned and are not implemented.
+English navigation and explanations are provided. Classical texts remain in Chinese; short English labels are not a translation. Qimen remains planned.
+
+## Face atlas (1.3.0)
+
+Open **Face atlas** in the main navigation, or `/#face`. Choose a PNG/JPEG/WebP portrait (up to 8 MiB), or try the attributed public-domain NASA example. The actual MediaPipe detector runs in a browser worker and shows **478 landmarks**, six measured ratios/angles and vertical reference segments. Optional manual reference lines distinguish an annotated hairline from the model's forehead point. Toggle overlays, export a geometry-only JSON report, or clear the photo and results.
+
+Photos and landmarks stay in memory in the browser: no photo API, provider call, localStorage or database. Model, WASM and worker are served from the same origin, without a runtime CDN. Measurements are 2D image geometry, not beauty scores or predictions about personality, health, wealth or fate. Cultural reading and linked sources are separate. See [face release evidence](docs/FACE_RELEASE_REPORT.md) and [asset provenance](public/face/assets.json). `predev` and `prebuild` prepare the generated worker/WASM from the locked npm package automatically.
 
 ## Run locally
 
